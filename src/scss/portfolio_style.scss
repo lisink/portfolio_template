@@ -51,6 +51,7 @@ body * {
 }
 
 .nav {
+  position: relative;
   float: right;
 
   margin-top: 23px;
@@ -59,9 +60,9 @@ body * {
   font-size: 18px;
 
   text-transform: capitalize;
+  z-index: 10;
 
-
-  a {
+  & > a {
     padding: 5px 0;
   }
 
@@ -295,7 +296,7 @@ body * {
   height: 93%;
   margin: auto;
   padding: 15px;
-
+  cursor: pointer;
   transition: opacity .3s;
 
   opacity: 0;
@@ -702,13 +703,11 @@ body * {
   display: block;
   visibility: hidden;
 
-  width: 150px;
-
   font-weight: 300;
 
   transition: all .3s;
   transform: translateX(-50%);
-  text-align: center;
+  
 
   opacity: 0;
   color: rgb(103, 103, 103);
@@ -754,18 +753,38 @@ body * {
   }
 
   li {
-    padding: 8px;
-
+    
+    // 
+    
     transition: background-color .3s;
 
     border-bottom: 1px solid #dbdbdb;
+    
     &:hover {
       background-color: rgba(210,210,210, .3);
+      
+      div:first-child {
+        margin-top: -34px;
+      }
     }
   }
 
   li:last-child {
     border: none;
+  }
+  
+  a {
+    display: block;
+    height: 34px;
+    overflow: hidden;
+  }
+  
+  div {
+    padding: 8px;
+    transition: all .3s ease;
+    // width: 235px;
+    text-align: center;
+    font-family: 'Comfortaa', sans-serif;
   }
 }
 

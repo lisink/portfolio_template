@@ -32,12 +32,14 @@ body * {
     color: #7d7d7d; }
 
 .nav {
+  position: relative;
   float: right;
   margin-top: 23px;
   font-family: Comfortaa;
   font-size: 18px;
-  text-transform: capitalize; }
-  .nav a {
+  text-transform: capitalize;
+  z-index: 10; }
+  .nav > a {
     padding: 5px 0; }
   .nav > li {
     position: relative;
@@ -171,6 +173,7 @@ body * {
   height: 93%;
   margin: auto;
   padding: 15px;
+  cursor: pointer;
   transition: opacity 0.3s;
   opacity: 0;
   color: #fff;
@@ -412,11 +415,9 @@ body * {
   left: 50%;
   display: block;
   visibility: hidden;
-  width: 150px;
   font-weight: 300;
   transition: all 0.3s;
   transform: translateX(-50%);
-  text-align: center;
   opacity: 0;
   color: #676767;
   border: 2px solid #b5b5b5;
@@ -448,13 +449,23 @@ body * {
     border-bottom: 10px solid #fff;
     border-left: 10px solid transparent; }
   .contacts li {
-    padding: 8px;
     transition: background-color 0.3s;
     border-bottom: 1px solid #dbdbdb; }
     .contacts li:hover {
       background-color: rgba(210, 210, 210, 0.3); }
+      .contacts li:hover div:first-child {
+        margin-top: -34px; }
   .contacts li:last-child {
     border: none; }
+  .contacts a {
+    display: block;
+    height: 34px;
+    overflow: hidden; }
+  .contacts div {
+    padding: 8px;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-family: 'Comfortaa', sans-serif; }
 
 .active .contacts {
   visibility: visible;
