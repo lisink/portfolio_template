@@ -3,6 +3,7 @@
   <head>
     <title>My portfolio template</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/reset.css">
     <!-- link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=PT+Sans|Poiret+One|Comfortaa:300,400,700|Cuprum|Roboto|Roboto+Condensed|Open+Sans&subset=cyrillic,latin')-->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Poiret+One|Comfortaa:300,400,&amp;subset=cyrillic,latin">
@@ -14,21 +15,21 @@
     <div class="header">
       <div class="line"></div>
       <div class="header-container">
-        <h1 class="logo animated slide-left del3"><a href="/"><span>Лисин</span><span>Константин</span></a></h1>
+        <div class="logo animated slide-left del3"><a href="/"><span>Лисин</span><span>Константин</span><i class="mobi pe-7s-phone"></i></a></div>
         <ul class="nav animated slide-right del3">
           <li><a href="#">работы</a></li>
           <li class="contacts-open"><a href="#">контакты</a>
             <ul class="contacts">
-              <li><a href="//vk.com/id244766127"> 
+              <li><a href="//vk.com/id244766127">
                   <div>Bконтакте</div>
                   <div>id244766127</div></a></li>
-              <li><a href="callto:wh1t3snake"> 
+              <li><a href="callto:wh1t3snake">
                   <div>скайп</div>
                   <div>wh1t3snake</div></a></li>
-              <li> <a href="mailto:sandman73@yandex.ru"> 
+              <li><a href="mailto:sandman73@yandex.ru">
                   <div>почта</div>
                   <div>sandman73@yandex.ru</div></a></li>
-              <li> <a href="tel:89084852366"> 
+              <li><a href="tel:89084852366">
                   <div>телефон</div>
                   <div>8&nbsp;908&nbsp;485&nbsp;2366</div></a></li>
             </ul>
@@ -75,7 +76,7 @@
             <div class="item-cont bordered">
               <div class="scale-description">
                 <div class="scale-content"><i class="lens pe-7s-search"></i></div>
-              </div>
+              </div><i style="position: absolute;top: 5px;right: 5px;z-index: 10;font-size: 32px;color: white;background: rgb(42, 145, 67);border-radius: 50%" class="pe-7s-check"></i>
               <div class="item-pic"><img src="i/port2.jpg"/></div>
             </div>
           </div>
@@ -230,8 +231,8 @@
     {
         var container = $('.nav');
     
-        if (!container.is(e.target) 
-            && container.has(e.target).length === 0) 
+        if (!container.is(e.target)
+            && container.has(e.target).length === 0)
         {
           $('.contacts-open').removeClass('active');
         }
@@ -244,10 +245,12 @@
     
     $('.about-open').click(function() {
       $('.about').addClass('opened');
+      $('body').addClass('opened');
     });
     
     $('.about-close').click(function() {
       $('.about').removeClass('opened');
+      $('body').removeClass('opened');
     });
     
     $('.contacts-open').click(function() {

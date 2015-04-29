@@ -7,12 +7,19 @@ body {
   font-weight: 700;
 
   background-color: $lt-gray;
+  
 }
 
 body * {
   box-sizing: border-box;
 
   outline: none;
+}
+
+body.opened {
+  @include max($small){
+    overflow: hidden;
+  }
 }
 
 ::selection {
@@ -32,15 +39,25 @@ body * {
 [class$='-container'] {
   width: 1170px;
   margin: 0 auto;
+  
+  @include max($big) {
+    width: 100%;
+  }
 }
 
 .logo {
   float: left;
 
-  margin-top: 14px;
+  margin-top: 13px;
 
   font: 32px 'Poiret One', sans-serif;
-
+  
+  @include max($xsmall) {
+    display: inline-block;
+    float: none;
+    margin: 20px 0;
+  }
+  
   span:first-child {
     color: #000;
   }
@@ -48,20 +65,41 @@ body * {
   span:last-child {
     color: #7d7d7d;
   }
+  
+  span {
+    @include max($small) {
+      display: none;
+    }
+  }
+  
+  i {
+    display: none;
+    font-size: 47px;
+    
+    @include max($small) {
+      display: block;
+    }
+  }
 }
 
 .nav {
   position: relative;
   float: right;
 
-  margin-top: 23px;
+  margin-top: 28px;
 
   font-family: Comfortaa;
   font-size: 18px;
 
   text-transform: capitalize;
   z-index: 10;
-
+  
+  @include max($xsmall) {
+    float: none;
+    margin: 0 0 20px;
+    padding: 7px;
+  }
+  
   & > a {
     padding: 5px 0;
   }
@@ -121,16 +159,26 @@ body * {
   @include rainbow-line($size2, $colors2);
 
   height: 5px;
+  
+  @include max($small) {
+    height: 8px;
+  }
 }
 
 .header {
-  min-height: 75px;
+  min-height: 85px;
 
   border-bottom: 2px solid $sd-gray;
   background-color: #fff;
+  
+  @include max($xsmall) {
+    min-height: 0;
+    text-align: center;
+  }
 }
 
-.header-container {
+.header-container,
+.copy-container {
   padding: 0 15px;
 }
 
@@ -152,7 +200,18 @@ body * {
 
   color: #111;
   border-bottom: 2px solid $tr-gray;
-
+  
+  @include max($small) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  @include max($small1) {
+    width: 100%;
+    border: none;
+    margin: 25px 0;
+  }
+  
   li {
     position: relative;
 
@@ -163,7 +222,12 @@ body * {
     cursor: pointer;
     transition: all .4s ease;
     text-transform: capitalize;
-
+    
+    @include max($small1) {
+      padding: 15px;
+      margin: 0;
+    }
+    
     &:last-child {
       margin-right: 0;
     }
@@ -188,6 +252,10 @@ body * {
       border-right: 12px solid transparent;
       border-bottom: 12px solid $tr-gray;
       border-left: 12px solid transparent;
+      
+      @include max($small1) {
+        content: none;
+      }
     }
 
     &:after {
@@ -221,26 +289,17 @@ body * {
   height: 100%;
 }
 
-.overlay {
-  position: absolute;
-
-  width: 100%;
-  height: 100%;
-
-  opacity: .1;
-  background: url('http://jaysalvat.github.io/vegas/releases/latest/overlays/02.png') 0 0 repeat;
-}
 
 .grid-item {
   width: 1170/4*1px;
   height: 250px;
   margin-bottom: 30px;
   padding: 0 15px;
-
+  
   .item-cont {
     position: relative;
     // border: 1px solid #D7D7D7;
-
+    background-color: #ccc;
     overflow: hidden;
 
     height: 100%;
@@ -281,6 +340,19 @@ body * {
 
     width: 100%;
     height: 100%;
+  }
+  
+  @include max($big) {
+    width: 33.33333333%;
+  }
+  
+  
+  @include max($medium) {
+    width: 50%;
+  }
+  
+  @include max($small2) {
+    width: 100%;
   }
 }
 
@@ -569,7 +641,11 @@ body * {
 
   transition: transform .3s cubic-bezier(.7,0,.3,1);
   transform: translateX(-100%);
-
+  
+  @include max($small){
+    padding: 0;
+  }
+  
   &.opened {
     transition-duration: .5s;
     transform: translateX(0);
@@ -656,7 +732,13 @@ body * {
   transition: all .3s ease;
 
   color: #fff;
-
+  
+  @include max($small){
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0,0,0,.7);
+  }
+  
   &:hover {
     color: $yellow;
   }
@@ -673,7 +755,12 @@ body * {
   background-color: rgba(0,0,0,.95);
 
   -webkit-backface-visibility: hidden;
-
+  
+  @include max($small) {
+    overflow-y: scroll;
+    padding: 30px 30px 30px 20px;
+  }
+  
   h2 {
     margin-bottom: 25px;
 
@@ -707,7 +794,6 @@ body * {
 
   transition: all .3s;
   transform: translateX(-50%);
-  
 
   opacity: 0;
   color: rgb(103, 103, 103);
@@ -751,11 +837,12 @@ body * {
     border-bottom: 10px solid #fff;
     border-left: 10px solid transparent;
   }
-
+  
+  $base-height: 18px;
+  $padding: 8px;
+  $mob-padding: 15px;
+  
   li {
-    
-    // 
-    
     transition: background-color .3s;
 
     border-bottom: 1px solid #dbdbdb;
@@ -764,7 +851,11 @@ body * {
       background-color: rgba(210,210,210, .3);
       
       div:first-child {
-        margin-top: -34px;
+        margin-top: -$padding*2 - $base-height;
+        
+        @include max($xsmall) {
+          margin-top: -$mob-padding*2 - $base-height;
+        }
       }
     }
   }
@@ -775,16 +866,24 @@ body * {
   
   a {
     display: block;
-    height: 34px;
+    height: $base-height + 2*$padding;
     overflow: hidden;
+    
+    @include max($xsmall) {
+      height: $base-height + 2*$mob-padding;
+    }
   }
   
   div {
-    padding: 8px;
+    padding: $padding;
     transition: all .3s ease;
     // width: 235px;
     text-align: center;
     font-family: 'Comfortaa', sans-serif;
+    
+    @include max($xsmall) {
+      padding: $mob-padding;
+    }
   }
 }
 

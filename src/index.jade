@@ -4,18 +4,18 @@ mixin alternate_description(color)
       h3 PORTFOLIO ITEM
       p Lorem
       .underline(class= color)
-      
+
 mixin alternate_description2
   .scale-description
     .scale-content
       i.lens.pe-7s-search
-      
+
 mixin portfolio_item(category, img, cur)
   .grid-item(class= category)
     .item-cont.bordered(class= cur)
-      if block 
+      if block
         block
-      else 
+      else
         .hover-description
           .description-content
             h3 Lorem ipsum
@@ -27,6 +27,7 @@ html
   head
     title= 'My portfolio template'
     meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
     link(rel='stylesheet', href='css/reset.css')
     // link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=PT+Sans|Poiret+One|Comfortaa:300,400,700|Cuprum|Roboto|Roboto+Condensed|Open+Sans&subset=cyrillic,latin')
     link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Poiret+One|Comfortaa:300,400,&subset=cyrillic,latin')
@@ -37,29 +38,30 @@ html
     .header
       .line
       .header-container
-        h1.logo.animated.slide-left.del3
+        .logo.animated.slide-left.del3
           a(href='/')
             span Лисин
             span Константин
+            i.mobi.pe-7s-phone
         ul.nav.animated.slide-right.del3
           li: a(href='#') работы
           li.contacts-open
             a(href='#') контакты
             ul.contacts
               li
-                a(href='//vk.com/id244766127') 
+                a(href='//vk.com/id244766127')
                   div Bконтакте
                   div id244766127
               li
-                a(href='callto:wh1t3snake') 
+                a(href='callto:wh1t3snake')
                   div скайп
                   div wh1t3snake
-              li  
-                a(href='mailto:sandman73@yandex.ru') 
+              li
+                a(href='mailto:sandman73@yandex.ru')
                   div почта
                   div= 'sandman73@yandex.ru'
-              li  
-                a(href='tel:89084852366') 
+              li
+                a(href='tel:89084852366')
                   div телефон
                   div 8&nbsp;908&nbsp;485&nbsp;2366
           li.about-open: a(href='#') обо мне
@@ -77,6 +79,7 @@ html
           +portfolio_item('port', 'land1.jpg')(class='fixed')
           +portfolio_item('port', 'port2.jpg')
             +alternate_description2
+            i.pe-7s-check(style='position: absolute;top: 5px;right: 5px;z-index: 10;font-size: 32px;color: white;background: rgb(42, 145, 67);border-radius: 50%')
           +portfolio_item('etc port', 'port3.jpg', 'hover-border')
           +portfolio_item('land', 'land3.jpg')
             +alternate_description('yellow')
@@ -112,26 +115,28 @@ html
     {
         var container = $('.nav');
 
-        if (!container.is(e.target) 
-            && container.has(e.target).length === 0) 
+        if (!container.is(e.target)
+            && container.has(e.target).length === 0)
         {
           $('.contacts-open').removeClass('active');
         }
     });
-    
+
     $('.cats li').click(function() {
       $('.cats li').removeClass('active');
       $(this).addClass('active');
     });
-    
+
     $('.about-open').click(function() {
       $('.about').addClass('opened');
+      $('body').addClass('opened');
     });
-    
+
     $('.about-close').click(function() {
       $('.about').removeClass('opened');
+      $('body').removeClass('opened');
     });
-    
+
     $('.contacts-open').click(function() {
       $(this).addClass('active');
     });
@@ -150,7 +155,7 @@ html
         filter: filterValue
       });
     });
-    
+
     $('.animated').waypoint({
       handler: function(direction) {
         $(this.element).addClass('in');
