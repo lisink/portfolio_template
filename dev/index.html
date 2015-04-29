@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/portfolio_style.css">
     <!-- link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=PT+Sans|Poiret+One|Comfortaa:300,400,700|Cuprum|Roboto|Roboto+Condensed|Open+Sans&subset=cyrillic,latin')-->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Poiret+One|Comfortaa:300,400,700&amp;subset=cyrillic,latin">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Poiret+One|Comfortaa:300,400,&amp;subset=cyrillic,latin">
     <link rel="stylesheet" href="fonts/pe7/assets/pe-icon-7-stroke.css">
     <link rel="stylesheet" href="libs/css/font-awesome.css">
   </head>
@@ -14,22 +14,22 @@
     <div class="header">
       <div class="line"></div>
       <div class="header-container">
-        <h1 class="logo"><a href="/"><span>Лисин</span><span>Константин</span></a></h1>
-        <ul class="nav">
+        <h1 class="logo animated slide-left del3"><a href="/"><span>Лисин</span><span>Константин</span></a></h1>
+        <ul class="nav animated slide-right del3">
           <li><a href="#">работы</a></li>
           <li class="contacts-open"><a href="#">контакты
               <ul class="contacts">
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
-                <li>lorem</li>
+                <li><span>B</span>контакте</li>
+                <li><span>С</span>кайп</li>
+                <li> <span>П</span>очта</li>
+                <li>Телефон</li>
               </ul></a></li>
           <li class="about-open"><a href="#">обо мне</a></li>
         </ul>
       </div>
     </div>
     <div class="content">
-      <ul class="cats">
+      <ul class="cats animated slide-left del2">
         <li class="active"><span data-filter="*">Bсе</span></li>
         <li><span data-filter=".land">лэндинги</span></li>
         <li><span data-filter=".eshop">магазины</span></li>
@@ -37,7 +37,7 @@
         <li><span data-filter=".etc">разное</span></li>
       </ul>
       <div id="container" class="grid-container">
-        <div class="grid">
+        <div class="grid animated slide-right del2">
           <div class="grid-item port">
             <div class="item-cont bordered curx">
               <div class="alt-description">
@@ -71,12 +71,12 @@
             </div>
           </div>
           <div class="grid-item etc port">
-            <div class="item-cont bordered">
-              <div class="alt-description">
-                <div class="alt-content">
-                  <h3>PORTFOLIO ITEM</h3>
-                  <p>Lorem</p>
-                  <div class="underline red"></div>
+            <div class="item-cont bordered hover-border">
+              <div class="hover-description">
+                <div class="description-content">
+                  <h3>Lorem ipsum</h3>
+                  <div class="hr"></div>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod.</p>
                 </div>
               </div>
               <div class="item-pic"><img src="i/port3.jpg"/></div>
@@ -214,6 +214,7 @@
     </div>
   </body>
   <script src="js/jquery.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
   <script src="libs/js/isotope.pkgd.min.js"></script>
   <script>
     $(document).mouseup(function (e)
@@ -258,5 +259,13 @@
         filter: filterValue
       });
     });
+    
+    $('.animated').waypoint({
+      handler: function(direction) {
+        $(this.element).addClass('in');
+      },
+        offset: '95%',
+        triggerOnce: true
+      })
   </script>
 </html>

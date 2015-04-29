@@ -53,6 +53,7 @@ body * {
   margin-top: 23px;
   font-family: Comfortaa;
   
+  
   a {
     padding: 5px 0;
   }
@@ -190,9 +191,6 @@ body * {
 .grid-container {
   margin-bottom: 50px;
   min-height: 500px;
-
-  overflow: hidden;
-  
 }
 
 .grid {
@@ -287,7 +285,8 @@ body * {
   }
   
   h3 {
-    font: bold 22px 'Roboto', sans-serif;
+    font-size: 22px;
+    font-weight: bold;
     text-transform: uppercase;
     transform: translateY(-60px);
   }
@@ -337,7 +336,6 @@ body * {
   
   p {
     color: #A0A0A0;
-    font-family: 'Roboto';
     font-size: 14px;
   }
   
@@ -515,6 +513,7 @@ body * {
   
   &.opened {
     transform: translateX(0);
+    transition-duration: .5s;
   }
   
   &.style1 .about-content {
@@ -637,7 +636,7 @@ body * {
   width: 150px;
   border: 2px solid #B5B5B5;
   background: #fff;
-  text-align: center;
+  font-weight: 300;
   box-shadow: 0 0 0 7px rgba(210,210,210, .3);
   border-radius: 5px;
   z-index: 100;
@@ -645,6 +644,7 @@ body * {
   opacity: 0;
   visibility: hidden;
   transition: all .3s;
+  text-align: center;
   
   &:before {
     content: "";
@@ -678,7 +678,7 @@ body * {
   li {
     padding: 8px;
     border-bottom: 1px solid #dbdbdb;
-    
+    transition: background-color .3s;
     &:hover {
       background-color: rgba(210,210,210, .3);
     }
@@ -695,4 +695,116 @@ body * {
     opacity: 1;
     visibility: visible;
   }
+}
+
+$border-size: 5px;
+.hover-border:before,
+.hover-border:after {
+	content: '';
+	position: absolute;
+	display: block;
+  border: 0 solid #5B5B5B;
+  width: 0;
+  height: 0;
+  transition: none;
+  box-sizing: border-box;
+  z-index: 200;
+}
+
+.hover-border:after {
+	right: 0;
+	bottom: 0;
+}
+
+.hover-border:hover:before,
+.hover-border:hover:after {
+  border-width: $border-size $border-size 0 0;
+	width: 100%;
+  height: 100%;
+  transition: width .3s 0s ease, height .3s .3s ease-out;
+}
+
+.hover-border:hover:after {
+	border-width: 0 0 $border-size $border-size;
+}
+
+.hover-border .hover-description {
+  width: 100%;
+  height: 100%;
+  background-color: #DFDFDF;
+  color: #000;
+  
+  h3, p {
+    // transform: translate(0);
+    color: #000;
+  }
+  h3 {
+    transform: translate(30px);
+  }
+  
+  p {
+    transform: translate(-30px);
+  }
+  
+  .hr {
+    background-color: #000;
+  }
+}
+
+$default-transition: all 1s ease-out;
+
+.scale-up {
+    transition: $default-transition;
+    transform: scale(0);
+
+    opacity: 0;
+
+    &.in {
+        transform: scale(1);
+
+        opacity: 1;
+    }
+} 
+
+.slide-up {
+    transition: $default-transition;
+    transform: translateY(200px);
+
+    opacity: 0;
+}
+
+.slide-down {
+    transition: $default-transition;
+    transform: translateY(-200px);
+
+    opacity: 0;
+}
+
+.slide-left {
+    transition: $default-transition;
+    transform: translate(-100px);
+
+    opacity: 0;
+} 
+
+.slide-right {
+    transition: $default-transition;
+    transform: translate(100px);
+
+    opacity: 0;
+} 
+
+.in {
+    transform: translate(0);
+
+    opacity: 1;
+} 
+
+@for $i from 1 through 5 {
+    .del#{$i} {
+        transition-delay: .3s * $i;
+    }
+    .dur#{$i} {
+        transition-duration: .3s * $i;
+    }
 }

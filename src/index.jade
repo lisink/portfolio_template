@@ -30,42 +30,47 @@ html
     link(rel='stylesheet', href='css/reset.css')
     link(rel='stylesheet', href='css/portfolio_style.css')
     // link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=PT+Sans|Poiret+One|Comfortaa:300,400,700|Cuprum|Roboto|Roboto+Condensed|Open+Sans&subset=cyrillic,latin')
-    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Poiret+One|Comfortaa:300,400,700&subset=cyrillic,latin')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Poiret+One|Comfortaa:300,400,&subset=cyrillic,latin')
     link(rel='stylesheet', href='fonts/pe7/assets/pe-icon-7-stroke.css')
     link(rel='stylesheet', href='libs/css/font-awesome.css')
   body
     .header
       .line
       .header-container
-        h1.logo
+        h1.logo.animated.slide-left.del3
           a(href='/')
             span Лисин
             span Константин
-        ul.nav
+        ul.nav.animated.slide-right.del3
           li: a(href='#') работы
           li.contacts-open: a(href='#') контакты
             ul.contacts
-              li lorem
-              li lorem
-              li lorem
-              li lorem
+              li
+                span B
+                |контакте
+              li
+                span С
+                |кайп
+              li 
+                span П
+                |очта
+              li Телефон
           li.about-open: a(href='#') обо мне
     .content
-      ul.cats
+      ul.cats.animated.slide-left.del2
           li.active: span(data-filter='*') Bсе
           li: span(data-filter='.land') лэндинги
           li: span(data-filter='.eshop') магазины
           li: span(data-filter='.port') портфолио
           li: span(data-filter='.etc') разное
       .grid-container#container
-        .grid
+        .grid.animated.slide-right.del2
           +portfolio_item('port', 'port1.jpg', 'curx')
             +alternate_description
           +portfolio_item('port', 'land1.jpg')(class='fixed')
           +portfolio_item('port', 'port2.jpg')
             +alternate_description2
-          +portfolio_item('etc port', 'port3.jpg')
-            +alternate_description('red')
+          +portfolio_item('etc port', 'port3.jpg', 'hover-border')
           +portfolio_item('land', 'land3.jpg')
             +alternate_description('yellow')
           +portfolio_item('port', 'this.jpg')
@@ -92,6 +97,7 @@ html
         p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, a, perferendis, amet dolorem non dicta placeat repudiandae quam dolore ea veniam ratione facilis cumque expedita quasi nisi voluptatum odit pariatur. Nostrum, ipsa deserunt id minus dolore ipsam laboriosam repudiandae sed vel iste ullam beatae provident adipisci animi numquam temporibus iure.
         p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, a, perferendis, amet dolorem non dicta placeat repudiandae quam dolore ea veniam ratione facilis cumque expedita quasi nisi voluptatum odit pariatur. Nostrum, ipsa deserunt id minus dolore ipsam laboriosam repudiandae sed vel iste ullam beatae provident adipisci animi numquam temporibus iure.
   script(src='js/jquery.js')
+  script(src='js/jquery.waypoints.min.js')
   script(src='libs/js/isotope.pkgd.min.js')
   script.
 
@@ -137,3 +143,11 @@ html
         filter: filterValue
       });
     });
+    
+    $('.animated').waypoint({
+      handler: function(direction) {
+        $(this.element).addClass('in');
+      },
+        offset: '95%',
+        triggerOnce: true
+      })
