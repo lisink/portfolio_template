@@ -1,0 +1,139 @@
+mixin alternate_description(color)
+  .alt-description
+    .alt-content
+      h3 PORTFOLIO ITEM
+      p Lorem
+      .underline(class= color)
+      
+mixin alternate_description2
+  .scale-description
+    .scale-content
+      i.lens.pe-7s-search
+      
+mixin portfolio_item(category, img, cur)
+  .grid-item(class= category)
+    .item-cont.bordered(class= cur)
+      if block 
+        block
+      else 
+        .hover-description
+          .description-content
+            h3 Lorem ipsum
+            .hr
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod.
+      .item-pic: img(src= 'i/'+img, class!= attributes.class)
+doctype html
+html
+  head
+    title= 'My portfolio template'
+    meta(charset='utf-8')
+    link(rel='stylesheet', href='css/reset.css')
+    link(rel='stylesheet', href='css/portfolio_style.css')
+    // link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=PT+Sans|Poiret+One|Comfortaa:300,400,700|Cuprum|Roboto|Roboto+Condensed|Open+Sans&subset=cyrillic,latin')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Poiret+One|Comfortaa:300,400,700&subset=cyrillic,latin')
+    link(rel='stylesheet', href='fonts/pe7/assets/pe-icon-7-stroke.css')
+    link(rel='stylesheet', href='libs/css/font-awesome.css')
+  body
+    .header
+      .line
+      .header-container
+        h1.logo
+          a(href='/')
+            span Лисин
+            span Константин
+        ul.nav
+          li: a(href='#') работы
+          li.contacts-open: a(href='#') контакты
+            ul.contacts
+              li lorem
+              li lorem
+              li lorem
+              li lorem
+          li.about-open: a(href='#') обо мне
+    .content
+      ul.cats
+          li.active: span(data-filter='*') Bсе
+          li: span(data-filter='.land') лэндинги
+          li: span(data-filter='.eshop') магазины
+          li: span(data-filter='.port') портфолио
+          li: span(data-filter='.etc') разное
+      .grid-container#container
+        .grid
+          +portfolio_item('port', 'port1.jpg', 'curx')
+            +alternate_description
+          +portfolio_item('port', 'land1.jpg')(class='fixed')
+          +portfolio_item('port', 'port2.jpg')
+            +alternate_description2
+          +portfolio_item('etc port', 'port3.jpg')
+            +alternate_description('red')
+          +portfolio_item('land', 'land3.jpg')
+            +alternate_description('yellow')
+          +portfolio_item('port', 'this.jpg')
+          +portfolio_item('eshop', 'eshop1.jpg')
+          +portfolio_item('eshop', 'eshop2.jpg')
+          +portfolio_item('land', 'land4.jpg')
+          +portfolio_item('land', 'land2.jpg')
+          +portfolio_item('land', 'land5.jpg')
+          +portfolio_item('etc', 'etc1.jpg')
+          +portfolio_item('etc', 'etc22.png')(class='fixed')
+    .footer
+      .line
+      ul.soc
+        li: a.vk(href='//vk.com/id244766127'): i.fa.fa-vk
+        li: a.skype(href='callto:wh1t3snake'): i.fa.fa-skype
+        li: a.mail(href='mailto:sandman73@yandex.ru'): i.fa.fa-envelope
+      .copy
+        .copy-container
+          |&copy;2015 Костя inc.
+    .about
+      .about-close: i.pe-7s-close
+      .about-content
+        h2 Lorem ipsum
+        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, a, perferendis, amet dolorem non dicta placeat repudiandae quam dolore ea veniam ratione facilis cumque expedita quasi nisi voluptatum odit pariatur. Nostrum, ipsa deserunt id minus dolore ipsam laboriosam repudiandae sed vel iste ullam beatae provident adipisci animi numquam temporibus iure.
+        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, a, perferendis, amet dolorem non dicta placeat repudiandae quam dolore ea veniam ratione facilis cumque expedita quasi nisi voluptatum odit pariatur. Nostrum, ipsa deserunt id minus dolore ipsam laboriosam repudiandae sed vel iste ullam beatae provident adipisci animi numquam temporibus iure.
+  script(src='js/jquery.js')
+  script(src='libs/js/isotope.pkgd.min.js')
+  script.
+
+    $(document).mouseup(function (e)
+    {
+        var container = $('.nav');
+
+        if (!container.is(e.target) 
+            && container.has(e.target).length === 0) 
+        {
+          $('.contacts-open').removeClass('active');
+        }
+    });
+    
+    $('.cats li').click(function() {
+      $('.cats li').removeClass('active');
+      $(this).addClass('active');
+    });
+    
+    $('.about-open').click(function() {
+      $('.about').addClass('opened');
+    });
+    
+    $('.about-close').click(function() {
+      $('.about').removeClass('opened');
+    });
+    
+    $('.contacts-open').click(function() {
+      $(this).addClass('active');
+    });
+
+    $(document).ready(function(){
+      $('#container').isotope({
+        itemSelector: '.grid-item',
+        layoutMode: 'fitRows',
+        transitionDuration: '0.8s'
+      });
+    });
+
+    $('.cats span').click(function(){
+      var filterValue = $(this).attr('data-filter');
+      $('#container').isotope({
+        filter: filterValue
+      });
+    });

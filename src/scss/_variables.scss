@@ -1,0 +1,37 @@
+$font: 'Comfortaa', sans-serif;
+
+$tr-gray: #989898;
+$lt-gray: #f2f2f2;
+$sd-gray: #e5e5e5;
+
+$yellow: #FAD763;
+$red: #F87A54;
+$blue: #BBE9DC;
+
+$bouncy: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+@mixin rainbow-line($size, $colors) {
+  $val: nth($colors, 1) 0px, nth($colors, 1) #{$size}px;
+  @for $i from 2 through length($colors) {
+    $val: $val, #{nth($colors, $i)} #{$size*($i - 1)}px, #{nth($colors, $i)} #{$size*$i}px;
+  }
+  background: repeating-linear-gradient(to right, $val);
+}
+
+@mixin min($min-width) {
+    @media screen and (min-width: $min-width) {
+        @content;
+    }
+}
+
+@mixin max($max-width) {
+    @media screen and (max-width: $max-width) {
+        @content;
+    }
+}
+
+@mixin between($min-width, $max-width) {
+    @media screen and (min-width: $min-width) and (max-width: $max-width) {
+        @content;
+    }
+}
