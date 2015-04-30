@@ -3,7 +3,7 @@
 body {
   height: 100%;
 
-  font-family: $font;
+  font-family: $comfortaa;
   font-weight: 700;
 
   background-color: $lt-gray;
@@ -88,7 +88,7 @@ body.opened {
 
   margin-top: 28px;
 
-  font-family: Comfortaa;
+  font-family: $comfortaa;
   font-size: 18px;
 
   text-transform: capitalize;
@@ -106,18 +106,20 @@ body.opened {
     display: inline-block;
 
     margin-right: 20px;
-
+    cursor: pointer;
+    
     &:last-child {
       margin-right: 0;
     }
 
-    & > a {
+    & > span {
       padding: 5px 0;
+      display: inline-block;
     }
     
     &:after {
       position: absolute;
-      bottom: -5px;
+      bottom: 0;
       left: 0;
 
       display: block;
@@ -186,6 +188,7 @@ body.opened {
   min-height: 500px;
 
   text-align: center;
+  overflow: hidden;
 }
 
 .cats {
@@ -201,12 +204,12 @@ body.opened {
   color: #111;
   border-bottom: 2px solid $tr-gray;
   
-  @include max($small) {
+  @include max($medium) {
     padding-left: 0;
     padding-right: 0;
   }
   
-  @include max($small1) {
+  @include max(730px) {
     width: 100%;
     border: none;
     margin: 25px 0;
@@ -223,7 +226,7 @@ body.opened {
     transition: all .4s ease;
     text-transform: capitalize;
     
-    @include max($small1) {
+    @include max($medium1) {
       padding: 15px;
       margin: 0;
     }
@@ -253,7 +256,7 @@ body.opened {
       border-bottom: 12px solid $tr-gray;
       border-left: 12px solid transparent;
       
-      @include max($small1) {
+      @include max($medium1) {
         content: none;
       }
     }
@@ -277,6 +280,11 @@ body.opened {
         transform: translateX(-50%) scale(1);
       }
     }
+  }
+  
+  span {
+    font-family: $comfortaa;
+    display: inline-block;
   }
 }
 
@@ -732,9 +740,8 @@ body.opened {
   position: absolute;
   top: 40px;
   right: 40px;
-
+  line-height: 40px;
   font-size: 52px;
-
   cursor: pointer;
   transition: all .3s ease;
 
@@ -756,9 +763,12 @@ body.opened {
 
   width: 100%;
   height: 100%;
-  padding: 50px 90px;
+  padding: 45px 55px;
 
+  font-weight: 300;
+  font-size: 17px;
   color: #fff;
+  
   background-color: rgba(0,0,0,.95);
 
   -webkit-backface-visibility: hidden;
@@ -771,20 +781,44 @@ body.opened {
   h2 {
     margin-bottom: 25px;
 
-    font: 42px 'Poiret One',sans-serif;
+    font: 38px 'Poiret One',sans-serif;
 
     text-align: center;
     text-transform: uppercase;
   }
 
   p {
-    margin: 15px 0;
+    margin: 12px 0;
 
-    font-size: 22px;
-    font-weight: 300;
     line-height: 1.7;
 
     text-indent: 40px;
+  }
+  
+  a {
+    color: $yellow;
+    transition: color .3s ease;
+    
+    &:hover {
+      color: darken($yellow, 15%);
+    }
+  }
+  
+  ul {
+    list-style-type: disc;
+    list-style-position: inside;
+    margin-left: 40px;
+    line-height: 1.5;
+  }
+  
+  @include max($small) {
+    h2 {
+      font-size: 24px;
+    }
+    
+    p {
+      font-size: 16px;
+    }
   }
 }
 
@@ -886,7 +920,7 @@ body.opened {
     transition: all .3s ease;
     // width: 235px;
     text-align: center;
-    font-family: 'Comfortaa', sans-serif;
+    font-family: $comfortaa;
     
     @include max($xsmall) {
       padding: $mob-padding;
@@ -902,66 +936,8 @@ body.opened {
   }
 }
 
-$border-size: 5px;
-.hover-border:before,
-.hover-border:after {
-  position: absolute;
-  z-index: 200;
-
-  display: block;
-
-  box-sizing: border-box;
-  width: 0;
-  height: 0;
-
-  content: '';
-  transition: none;
-
-  border: 0 solid #5b5b5b;
-}
-
-.hover-border:after {
-  right: 0;
-  bottom: 0;
-}
-
-.hover-border:hover:before,
-.hover-border:hover:after {
-  width: 100%;
-  height: 100%;
-
-  transition: width .3s 0s ease, height .3s .3s ease-out;
-
-  border-width: $border-size $border-size 0 0;
-}
-
-.hover-border:hover:after {
-  border-width: 0 0 $border-size $border-size;
-}
-
-.hover-border .hover-description {
-  width: 100%;
-  height: 100%;
-
-  color: #000;
-  background-color: #dfdfdf;
-
-  h3,
-  p {
-    // transform: translate(0);
-    color: #000;
-  }
-  h3 {
-    transform: translate(30px);
-  }
-
-  p {
-    transform: translate(-30px);
-  }
-
-  .hr {
-    background-color: #000;
-  }
+em {
+  color: $blue;
 }
 
 .marker {

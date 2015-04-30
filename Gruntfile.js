@@ -10,11 +10,11 @@ module.exports = function(grunt) {
 		// Tasks configuration:
 		concat: {
 			js: {
-				src: 'dev/js/*.js',
+				src: 'lisink.github.io/js/*.js',
 				dest: 'build/js/production.js',
 			},
 			css: {
-				src: 'dev/css/*.css',  
+				src: 'lisink.github.io/css/*.css',  
 				dest: 'build/css/production.css',
 			}
 		},
@@ -30,7 +30,7 @@ module.exports = function(grunt) {
 					expand: true,
 					cwd: "src",
 					src: ["*.jade","!partials/*.jade"], 
-					dest: "dev/",
+					dest: "lisink.github.io/",
 					ext: '.html'
 				} ]
 			}
@@ -45,7 +45,7 @@ module.exports = function(grunt) {
 						expand: true,
 						cwd: "src/scss",
 						src: "*.scss", 
-						dest: "dev/css",
+						dest: "lisink.github.io/css",
 						ext: '.css'
 					} ]
 				}
@@ -73,7 +73,7 @@ module.exports = function(grunt) {
 			
 			css: {
 				expand: true,
-				src: 'dev/css/*.css', 
+				src: 'lisink.github.io/css/*.css', 
 				dest: '' 
 			},
 			
@@ -92,8 +92,8 @@ module.exports = function(grunt) {
 			all: {
 				expand: true,
 				flatten: true,
-				src: 'dev/css/*.css', 
-				dest: 'dev/css/' 
+				src: 'lisink.github.io/css/*.css', 
+				dest: 'lisink.github.io/css/' 
 			},
 			
 		},
@@ -102,7 +102,7 @@ module.exports = function(grunt) {
 			server: {
 				options: {
 					port: 9000,
-					base: 'dev',
+					base: 'lisink.github.io',
 					livereload: true,
 				}
 			}
@@ -110,7 +110,7 @@ module.exports = function(grunt) {
 		
 		bower: {
 			dev: {
-				dest: 'dev/libs'
+				dest: 'lisink.github.io/libs'
 			}
 		},
 

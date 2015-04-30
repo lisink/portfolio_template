@@ -49,7 +49,7 @@ html
             i.mobi.pe-7s-phone
         ul.nav.animated.slide-right.del3
           li.contacts-open
-            a(href='#') контакты
+            span контакты
             ul.contacts
               li
                 a(href='//vk.com/id244766127')
@@ -67,7 +67,7 @@ html
                 a(href='tel:89084852366')
                   div телефон
                   div 8&nbsp;908&nbsp;485&nbsp;2366
-          li.about-open: a(href='#') обо мне
+          li.about-open: span обо мне
     .content
       ul.cats.animated.slide-left.del2
           li.active: span(data-filter='*') Bсе
@@ -81,8 +81,8 @@ html
           +portfolio_item('eshop adaptive', 'eshop1.jpg','SPORT SHOES','главная + 2 внутренних страницы магазина обуви')
             +marker
           +portfolio_item('port', 'port1.jpg', 'focal', 'шаблон страницы персонального портфолио', '/', 'red')
-          +portfolio_item('port', 'land1.jpg', 'marble', 'лэндинг для  веб-студии', '/', 'yellow')
-          +portfolio_item('port adaptive', 'port2.jpg','crafty', 'адаптивный лэндинг', '/','red')
+          +portfolio_item('port land', 'land1.jpg', 'marble', 'лэндинг для  веб-студии', '/', 'yellow')
+          +portfolio_item('port adaptive land', 'port2.jpg','crafty', 'адаптивный лэндинг', '/','red')
           +portfolio_item('portfolio', 'land2.jpg', 'hexal', 'yet another portfolio landing page','/', 'yellow')
           +portfolio_item('eshop land adaptive', 'eshop2.jpg', 'claymore', 'адаптивный лэндинг интернет магазина', 'blue')
             +marker
@@ -91,7 +91,7 @@ html
           +portfolio_item('land adaptive', 'land3.jpg', 'отборочное задание волга it 2015', 'лэндинг стачки 2014','/', 'red')
           +portfolio_item('etc port', 'port3.jpg', 'CSSSR', 'форма-анкета-резюме верстальщика','/', 'yellow')
           +portfolio_item('port adaptive', 'this.jpg', 'мое портфолио', 'примеры моих работ','/', 'blue')
-          +portfolio_item('etc', 'etc1.jpg', 'html штуки', 'делаем интересные и не очень вещи, практикуемся в верстке','/', 'red')
+          +portfolio_item('etc', 'etc1.jpg', 'html штуки', ' интересные и не очень вещи, практикуюсь в верстке','/', 'red')
           +portfolio_item('etc', 'etc22.png', 'лупа!', '"увеличительное стекло" для картинок','/', 'yellow')
     .footer
       .line
@@ -105,9 +105,24 @@ html
     .about
       .about-close: i.pe-7s-close
       .about-content
-        h2 Lorem ipsum
-        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, a, perferendis, amet dolorem non dicta placeat repudiandae quam dolore ea veniam ratione facilis cumque expedita quasi nisi voluptatum odit pariatur. Nostrum, ipsa deserunt id minus dolore ipsam laboriosam repudiandae sed vel iste ullam beatae provident adipisci animi numquam temporibus iure.
-        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, a, perferendis, amet dolorem non dicta placeat repudiandae quam dolore ea veniam ratione facilis cumque expedita quasi nisi voluptatum odit pariatur. Nostrum, ipsa deserunt id minus dolore ipsam laboriosam repudiandae sed vel iste ullam beatae provident adipisci animi numquam temporibus iure.
+        h2 Познакомимся?
+        p Привет, меня зовут Лисин Константин и я верстальщик. Вплотную версткой  занимаюсь чуть больше года, за это время я неплохо освоил html & css, нарезку макетов в Photoshop, что и позволяет мне делать такие страницы как эта (и даже лучше). 
+        p. 
+          В настоящий момент я завершаю обучение на 5 курсе ФИСТ УлГТУ по специальности &laquo;Информационные системы и технологии&raquo;. К сожалению, я еще не успел поработать ни в одной компании по своим интересам, но думаю что все еще впереди и я найду применение своим навыкам. Из достижений в верстке занятое второе место в финале олимпиады #[a(href='http://2015.volga-it.org/%D1%83%D1%87%D0%B0%D1%81%D1%82%D0%BD%D0%B8%D0%BA%D0%B8/%D1%80%D0%B5%D0%B7%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%82%D1%8B-%D1%84%D0%B8%D0%BD%D0%B0%D0%BB%D0%B0/' target='_blank') Волга-IT 2015] в соответствующей номинации.
+        p В своей работе я использую следующие технологии:
+        ul
+          li CSS3 
+            |(
+            a(href='//sass-lang.com' target='_blank') SASS
+            |)
+          li HTML5
+          li JS(jQuery)
+          li: a(href='//jade-lang.com' target='_blank') шаблонизатор Jade
+          li: a(href='//gruntjs.com/' target='_blank') GRUNT
+          li: a(href='//bower.io/' target='_blank') Bower
+        p Верстаю #[em кроссбраузерно, валидно, адаптивно]. Имею опыт работы с Git
+          br
+          Всегда готов к сотрудничеству. Если вам понравилось то, что я делаю - напишите мне. Да прибудет с вами &laquo;Lorem ipsum dolor sit amet&raquo;!
   script(src='/libs/js/jquery.js')
   script(src='/libs/js/jquery.waypoints.min.js')
   script(src='libs/js/isotope.pkgd.min.js')

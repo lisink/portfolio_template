@@ -1,4 +1,5 @@
-$font: 'Comfortaa', sans-serif;
+$comfortaa: 'Comfortaa', sans-serif;
+$poiret: 'Comfortaa', sans-serif;
 
 $tr-gray: #989898;
 $lt-gray: #f2f2f2;
@@ -13,6 +14,7 @@ $bouncy: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 // breakpoints:
 $big: 1180px;
 $medium: 850px;
+$medium1: 730px;
 $small: 660px;
 $small2: 520px;
 $small1: 580px;
@@ -42,4 +44,67 @@ $xsmall: 400px;
     @media screen and (min-width: $min-width) and (max-width: $max-width) {
         @content;
     }
+}
+
+
+$border-size: 5px;
+.hover-border:before,
+.hover-border:after {
+  position: absolute;
+  z-index: 200;
+
+  display: block;
+
+  box-sizing: border-box;
+  width: 0;
+  height: 0;
+
+  content: '';
+  transition: none;
+
+  border: 0 solid #5b5b5b;
+}
+
+.hover-border:after {
+  right: 0;
+  bottom: 0;
+}
+
+.hover-border:hover:before,
+.hover-border:hover:after {
+  width: 100%;
+  height: 100%;
+
+  transition: width .3s 0s ease, height .3s .3s ease-out;
+
+  border-width: $border-size $border-size 0 0;
+}
+
+.hover-border:hover:after {
+  border-width: 0 0 $border-size $border-size;
+}
+
+.hover-border .hover-description {
+  width: 100%;
+  height: 100%;
+
+  color: #000;
+  background-color: #dfdfdf;
+
+  h3,
+  p {
+    // transform: translate(0);
+    color: #000;
+  }
+  h3 {
+    transform: translate(30px);
+  }
+
+  p {
+    transform: translate(-30px);
+  }
+
+  .hr {
+    background-color: #000;
+  }
 }
