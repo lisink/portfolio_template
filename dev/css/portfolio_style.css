@@ -192,8 +192,6 @@ body * {
       max-width: 100%;
       transition: transform 0.3s;
       transform: scale(1); }
-    .grid-item .item-cont .fixed {
-      max-width: initial; }
     .grid-item .item-cont:hover .hover-description {
       opacity: 1; }
     .grid-item .item-cont:hover p, .grid-item .item-cont:hover h3 {
