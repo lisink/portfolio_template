@@ -1,3 +1,6 @@
+mixin marker
+  i.marker.pe-7s-check
+  
 mixin alternate_description(color)
   .alt-description
     .alt-content
@@ -29,7 +32,6 @@ html
     meta(charset='utf-8')
     meta(name='viewport' content='width=device-width, initial-scale=1')
     link(rel='stylesheet', href='css/reset.css')
-    // link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=PT+Sans|Poiret+One|Comfortaa:300,400,700|Cuprum|Roboto|Roboto+Condensed|Open+Sans&subset=cyrillic,latin')
     link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Poiret+One|Comfortaa:300,400,&subset=cyrillic,latin')
     link(rel='stylesheet', href='fonts/pe7/assets/pe-icon-7-stroke.css')
     link(rel='stylesheet', href='libs/css/font-awesome.css')
@@ -74,23 +76,25 @@ html
           li: span(data-filter='.etc') разное
       .grid-container#container
         .grid.animated.slide-right.del2
+          +portfolio_item('eshop', 'eshop1.jpg')
+            +alternate_description
+            +marker
           +portfolio_item('port', 'port1.jpg', 'curx')
             +alternate_description
-          +portfolio_item('port', 'land1.jpg')(class='fixed')
+          +portfolio_item('port', 'land1.jpg')
           +portfolio_item('port', 'port2.jpg')
             +alternate_description2
-            i.pe-7s-check(style='position: absolute;top: 5px;right: 5px;z-index: 10;font-size: 32px;color: white;background: rgb(42, 145, 67);border-radius: 50%')
-          +portfolio_item('etc port', 'port3.jpg', 'hover-border')
-          +portfolio_item('land', 'land3.jpg')
-            +alternate_description('yellow')
-          +portfolio_item('port', 'this.jpg')
-          +portfolio_item('eshop', 'eshop1.jpg')
+            +marker
           +portfolio_item('eshop', 'eshop2.jpg')
-          +portfolio_item('land', 'land4.jpg')
           +portfolio_item('land', 'land2.jpg')
           +portfolio_item('land', 'land5.jpg')
+          +portfolio_item('land', 'land4.jpg')
+          +portfolio_item('land', 'land3.jpg')
+          +portfolio_item('etc port', 'port3.jpg', 'hover-border')
+          +portfolio_item('port', 'this.jpg')
+            +alternate_description('yellow')
           +portfolio_item('etc', 'etc1.jpg')
-          +portfolio_item('etc', 'etc22.png')(class='fixed')
+          +portfolio_item('etc', 'etc22.png')
     .footer
       .line
       ul.soc

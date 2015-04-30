@@ -7,7 +7,7 @@ body {
   font-weight: 700;
 
   background-color: $lt-gray;
-  
+  overflow-x: hidden;
 }
 
 body * {
@@ -99,10 +99,6 @@ body.opened {
     margin: 0 0 20px;
     padding: 7px;
   }
-  
-  & > a {
-    padding: 5px 0;
-  }
 
   & > li {
     position: relative;
@@ -115,6 +111,10 @@ body.opened {
       margin-right: 0;
     }
 
+    & > a {
+      padding: 5px 0;
+    }
+    
     &:after {
       position: absolute;
       bottom: -5px;
@@ -298,8 +298,8 @@ body.opened {
   
   .item-cont {
     position: relative;
-    // border: 1px solid #D7D7D7;
     background-color: #ccc;
+    box-shadow: 0 0 0 4px #fff, 0 0 10px 4px rgba(0,0,0,0.1);
     overflow: hidden;
 
     height: 100%;
@@ -430,6 +430,7 @@ body.opened {
 
   color: #000;
   background-color: #fff;
+  z-index: 100;
 }
 
 
@@ -953,8 +954,18 @@ $border-size: 5px;
   }
 }
 
-$default-transition: all 1s ease-out;
+.marker {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 10;
+  font-size: 32px;
+  color: #fff;
+  background-color: rgb(42, 145, 67);
+  border-radius: 50%;
+}
 
+$default-transition: all 1s ease-out;
 .scale-up {
   transition: $default-transition;
   transform: scale(0);
