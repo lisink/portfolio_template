@@ -186,9 +186,11 @@ body * {
   padding: 0 15px; }
   .grid-item .item-cont {
     position: relative;
+    display: block;
     background-color: #ccc;
     box-shadow: 0 0 0 4px #fff, 0 0 10px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    cursor: pointer;
     height: 100%; }
     .grid-item .item-cont img {
       max-width: 100%;
@@ -200,6 +202,9 @@ body * {
       transform: translate(0); }
     .grid-item .item-cont:hover .hr {
       transform: scaleX(1); }
+  .grid-item .view {
+    display: inline-block;
+    font-size: 42px; }
   .grid-item .item-pic {
     overflow: hidden;
     width: 100%;
@@ -269,7 +274,8 @@ body * {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 100%;
+  width: 90%;
+  line-height: 1.5;
   transform: translate(-50%, -50%);
   text-transform: uppercase; }
   .alt-content h3 {
@@ -278,7 +284,8 @@ body * {
     font-weight: bold; }
   .alt-content p {
     font-size: 14px;
-    color: #a0a0a0; }
+    color: #a0a0a0;
+    font-weight: 300; }
   .alt-content .underline {
     width: 40px;
     height: 3px;
@@ -291,9 +298,9 @@ body * {
   .alt-content .red {
     background-color: #F87A54; }
 
-.item-cont:hover .alt-description {
+.item-cont.active .alt-description, .item-cont:hover .alt-description {
   margin-top: 0; }
-.item-cont:hover .scale-description {
+.item-cont.active .scale-description, .item-cont:hover .scale-description {
   transform: scale(1);
   opacity: 1; }
 
