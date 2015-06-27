@@ -19,6 +19,7 @@ $small: 660px;
 $small2: 520px;
 $small1: 580px;
 $xsmall: 400px;
+$mobile: 320px;
 
 @mixin rainbow-line($size, $colors) {
   $val: nth($colors, 1) 0px, nth($colors, 1) #{$size}px;
@@ -46,65 +47,64 @@ $xsmall: 400px;
     }
 }
 
+// $border-size: 5px;
+// .hover-border:before,
+// .hover-border:after {
+  // position: absolute;
+  // z-index: 200;
 
-$border-size: 5px;
-.hover-border:before,
-.hover-border:after {
-  position: absolute;
-  z-index: 200;
+  // display: block;
 
-  display: block;
+  // box-sizing: border-box;
+  // width: 0;
+  // height: 0;
 
-  box-sizing: border-box;
-  width: 0;
-  height: 0;
+  // content: '';
+  // transition: none;
 
-  content: '';
-  transition: none;
+  // border: 0 solid #5b5b5b;
+// }
 
-  border: 0 solid #5b5b5b;
-}
+// .hover-border:after {
+  // right: 0;
+  // bottom: 0;
+// }
 
-.hover-border:after {
-  right: 0;
-  bottom: 0;
-}
+// .hover-border:hover:before,
+// .hover-border:hover:after {
+  // width: 100%;
+  // height: 100%;
 
-.hover-border:hover:before,
-.hover-border:hover:after {
-  width: 100%;
-  height: 100%;
+  // transition: width .3s 0s ease, height .3s .3s ease-out;
 
-  transition: width .3s 0s ease, height .3s .3s ease-out;
+  // border-width: $border-size $border-size 0 0;
+// }
 
-  border-width: $border-size $border-size 0 0;
-}
+// .hover-border:hover:after {
+  // border-width: 0 0 $border-size $border-size;
+// }
 
-.hover-border:hover:after {
-  border-width: 0 0 $border-size $border-size;
-}
+// .hover-border .hover-description {
+  // width: 100%;
+  // height: 100%;
 
-.hover-border .hover-description {
-  width: 100%;
-  height: 100%;
+  // color: #000;
+  // background-color: #dfdfdf;
 
-  color: #000;
-  background-color: #dfdfdf;
-
-  h3,
-  p {
+  // h3,
+  // p {
     // transform: translate(0);
-    color: #000;
-  }
-  h3 {
-    transform: translate(30px);
-  }
+    // color: #000;
+  // }
+  // h3 {
+    // transform: translate(30px);
+  // }
 
-  p {
-    transform: translate(-30px);
-  }
+  // p {
+    // transform: translate(-30px);
+  // }
 
-  .hr {
-    background-color: #000;
-  }
-}
+  // .hr {
+    // background-color: #000;
+  // }
+// }

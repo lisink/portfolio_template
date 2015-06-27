@@ -4,10 +4,11 @@
   "version": "0.1.0",
   "devDependencies": {
     "grunt-autoprefixer": "~1.0.1",
+    "grunt-bower": "*",
+    "grunt-contrib-connect": "*",
+    "grunt-contrib-imagemin": "^0.9.4",
     "grunt-contrib-jade": "~0.13.x",
     "grunt-contrib-watch": "~0.5.x",
-    "grunt-contrib-connect": "*",
-    "grunt-bower": "*",
     "grunt-csscomb": "~3.0.0",
     "grunt-sass": "^0.16.1",
     "jit-grunt": "*",

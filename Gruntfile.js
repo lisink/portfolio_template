@@ -137,7 +137,19 @@ module.exports = function(grunt) {
 			},
 			
 		},
-		
+		imagemin: { 
+			dyn: {                        
+			  options: {                       
+				optimizationLevel: 3,
+			  },
+			  files: [{
+				expand: true,       
+				cwd: 'lisink.github.io/i',                
+				src: ['*.{png,jpg,gif}'],  
+				dest: 'lisink.github.io/i/min'                  
+			  }]
+			},
+		}
 	});
 	
 	//Load plugins that provide described tasks only when they needed 
