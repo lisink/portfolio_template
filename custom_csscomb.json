@@ -5,8 +5,8 @@
         "bower_components/**"
     ],
     "always-semicolon": true,
-    "block-indent": 2,
-    "tab-size": 2,
+    "block-indent": 4,
+    "tab-size": 4,
     "color-case": "lower",
     "color-shorthand": true,
     "element-case": "lower",
@@ -21,14 +21,14 @@
     "space-before-closing-brace": "\n",
     "space-before-colon": "",
     "space-before-combinator": " ",
-    space-before-opening-brace": " ",
+    "space-before-opening-brace": " ",
     "space-before-selector-delimiter": "",
     "rules-delimiter": "\n",
     "strip-spaces": true,
     "unitless-zero": true,
     "vendor-prefix-align": true,
     "sort-order": [
-		[ "$variable" ], 
+		[ "$variable" ],
 		[ "$include" ],
         [
             "position",
