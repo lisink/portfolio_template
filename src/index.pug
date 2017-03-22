@@ -1,47 +1,27 @@
-mixin marker
-  i.marker.pe-7s-check
+//- Includes
+include includes/mixins.pug
 
-mixin alternate_description
-  .hover-description
-    .description-content
-      h3 Lorem ipsum
-      .hr
-      p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod.
-    .item-pic: img(src= 'i/'+img, class!= attributes.class)
-
-
-mixin alternate_description2
-  .scale-description
-    .scale-content
-      i.lens.pe-7s-search
-
-mixin portfolio_item(category, img, name, description, link, color)
-  .grid-item(class= category)
-    a.item-cont(href= link target='_blank')
-      .alt-description
-        .alt-content
-          h3= name
-          p= description
-          .underline(class= color)
-          i.view.pe-7s-search
-      .item-pic: img(src= 'i/min/'+img, class!= attributes.class)
-      if block
-        block
+//- Page code
 doctype html
 html
   head
     title= 'Портфолио верстальщика'
+
     meta(charset='utf-8')
     meta(name='viewport' content='width=device-width, initial-scale=1')
-    meta(name='author' content='Костя Лисин')
+    meta(name='author' content='Лисин Константин')
     meta(name="keywords" content='Портфолио, верстка, html, css, адаптивная, резюме, фронтенд, frontend, adaptive, html верстка, портфолио верстальщика, верстка сайтов, html-верстка')
-    meta(name="description" content="Портфолио верстальщика-неофита. Люблю адаптивную кроссбраузерную верстку, чистый и лаконичный дизайн")
-    link(rel="shortcut icon", href="/favicon2.ico", type="image/x-icon")
+    meta(name="description" content="Портфолио верстальщика. Люблю адаптивную и кроссбраузерную верстку, чистый и лаконичный дизайн, pixel perfect и новые технологии")
+
     link(rel="icon", href="/favicon4.ico", type="image/x-icon")
+
+    //- Third party styles
     link(rel='stylesheet', href='css/reset.css')
     link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Poiret+One|Comfortaa:300,400,&subset=cyrillic,latin')
     link(rel='stylesheet', href='libs/fonts/pe7/pe-icon-7-stroke/css/pe-icon-7-stroke.css')
     link(rel='stylesheet', href='libs/css/font-awesome.css')
+
+    //- Project styles
     link(rel='stylesheet', href='css/portfolio_style.css')
   body
     .header
@@ -61,9 +41,9 @@ html
                   div Bконтакте
                   div id244766127
               li
-                a(href='callto:wh1t3snake')
+                a(href='callto:sd_klisin')
                   div скайп
-                  div wh1t3snake
+                  div sd_klisin
               li
                 a(href='mailto:sandman73@yandex.ru')
                   div почта
@@ -85,8 +65,8 @@ html
         .grid.animated.slide-right.del2
           +portfolio_item('eshop adaptive', 'eshop1.jpg','SPORT SHOES','главная + 2 внутренних страницы магазина обуви', 'works/shoes')
             +marker
-          +portfolio_item('eshop adaptive', 'cscart.jpg','MOTORSHOP','главная страница магазина на CS cart', 'http://www.cstask.byethost3.com/cscart/', 'red')
-            +marker
+          //- +portfolio_item('eshop adaptive', 'cscart.jpg','MOTORSHOP','главная страница магазина на CS cart', 'http://www.cstask.byethost3.com/cscart/', 'red')
+          //-   +marker
           +portfolio_item('land eshop', 'trekking.jpg', 'trekking', 'лэндинг интернет-магазина', 'works/trekking', 'yellow')
           +portfolio_item('etc', 'dash.jpg', 'dashboard', 'страница панели управления', 'works/dashboard', 'blue')
           +portfolio_item('port', 'port1.jpg', 'focal', 'шаблон страницы персонального портфолио', 'works/focal', 'red')
@@ -99,117 +79,43 @@ html
           +portfolio_item('land adaptive', 'land44.jpg', 'bread', 'когда закончатся эти лэндинги?', 'works/bread', 'blue')
           +portfolio_item('land adaptive', 'land3.jpg', 'отборочное задание волга it 2015', 'лэндинг стачки 2014','works/volgait', 'red')
           +portfolio_item('etc port', 'port3.jpg', 'CSSSR', 'форма-анкета-резюме верстальщика','works/csssr', 'yellow')
-          +portfolio_item('port adaptive', 'this.jpg', 'мое портфолио', 'примеры моих работ','/', 'blue')
+          //- +portfolio_item('port adaptive', 'this.jpg', 'мое портфолио', 'примеры моих работ','/', 'blue')
           +portfolio_item('etc', 'etc11.jpg', 'html штуки', ' интересные и не очень вещи, практикуюсь в верстке','works/html_practice/index.html#3d', 'red')
           +portfolio_item('etc', 'etc22.png', 'лупа!', '"увеличительное стекло" для картинок','works/lens', 'yellow')
     .footer
       .line
       ul.soc
+        //- TODO: Replace with SVG icons
         li: a.vk(href='//vk.com/id244766127'): i.fa.fa-vk
         li: a.skype(href='callto:wh1t3snake'): i.fa.fa-skype
         li: a.mail(href='mailto:sandman73@yandex.ru'): i.fa.fa-envelope
       .copy
         .copy-container
-          |&copy;2015  Костя inc.
+          |&copy;2015 - 2017  Костя inc.
     .about
       .about-close: i.pe-7s-close
       .about-content
         h2 Познакомимся?
-        p Привет, меня зовут Константин и я верстальщик. Bплотную версткой  занимаюсь чуть больше года, за это время я неплохо освоил html & css, нарезку макетов в Photoshop, что и позволяет мне делать такие страницы как эта (и даже лучше).
+        p Привет, меня зовут Константин и я верстальщик. Bплотную версткой  занимаюсь чуть болee двух лет, за это время я отлично освоил html & css, нарезку макетов в Photoshop, что и позволяет мне делать такие страницы как эта (и даже лучше).
         p.
-          B этом году я закончил обучение на  ФИСТ УлГТУ по специальности &laquo;Информационные системы и технологии&raquo;. К сожалению, я еще не успел поработать ни в одной компании по своим интересам, но думаю что все еще впереди и я найду применение своим навыкам. Из достижений в верстке занятое второе место в финале олимпиады #[a(href='http://2015.volga-it.org/%D1%83%D1%87%D0%B0%D1%81%D1%82%D0%BD%D0%B8%D0%BA%D0%B8/%D1%80%D0%B5%D0%B7%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%82%D1%8B-%D1%84%D0%B8%D0%BD%D0%B0%D0%BB%D0%B0/' target='_blank') Bолга-IT 2015] в соответствующей номинации.
+          B 2015 году я закончил обучение на  ФИСТ УлГТУ по специальности &laquo;Информационные системы и технологии&raquo;. Из достижений в верстке занятое второе место в финале олимпиады #[a(href='http://www.volga-it.org/task-and-works/2015/final.pdf' target='_blank') Bолга-IT 2015] в соответствующей номинации. В данный момент работаю в замечательной компании #[a(href='//simtech.ru' target='_blank') Simtech].
         p B своей работе я использую следующие технологии:
         ul
           li CSS3
             |(
             a(href='//sass-lang.com' target='_blank') SASS
+            a(href='//lesscss.org/' target='_blank') LESS
             |)
           li HTML5
           li JS(jQuery)
           li: a(href='//jade-lang.com' target='_blank') шаблонизатор Jade
           li: a(href='//gruntjs.com/' target='_blank') GRUNT
           li: a(href='//bower.io/' target='_blank') Bower
-        p Bерстаю #[em кроссбраузерно, валидно, адаптивно]. Имею опыт работы с Git.
+        p Bерстаю #[em кроссбраузерно, валидно, адаптивно]. В работе использую Git (+ github, bitbucket, stash).
           br
           |Bсегда готов к сотрудничеству. Если вам понравилось то, что я делаю - напишите мне. Да прибудет с вами &laquo;Lorem ipsum dolor sit amet&raquo;!
   script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
   script(src='libs/js/jquery.waypoints.min.js')
   script(src='//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.0/isotope.pkgd.min.js')
-  script.
-    $(document).mouseup(function (e) {
-        var container = $('.nav');
-
-        if (!container.is(e.target)
-            && container.has(e.target).length === 0)
-        {
-          $('.contacts-open').removeClass('active');
-        }
-    });
-
-    $('.cats li').click(function() {
-      $('.cats li').removeClass('active');
-      $(this).addClass('active');
-    });
-
-    $('.about-open').click(function() {
-      $('.about').addClass('opened');
-      $('body').addClass('opened');
-    });
-
-    $('.about-close').click(function() {
-      $('.about').removeClass('opened');
-      $('body').removeClass('opened');
-    });
-
-    $('.contacts-open').click(function() {
-      $(this).addClass('active');
-    });
-
-    $(document).ready(function(){
-      $('.grid').isotope({
-        itemSelector: '.grid-item',
-        layoutMode: 'fitRows',
-        transitionDuration: '0.8s'
-      });
-    });
-
-    $('.cats span').click(function(){
-      var filterValue = $(this).attr('data-filter');
-      $('.grid').isotope({
-        filter: filterValue
-      });
-    });
-
-    $('.animated').waypoint({
-      handler: function(direction) {
-        $(this.element).addClass('in');
-      },
-        offset: '95%',
-        triggerOnce: true
-      });
-      
-  <!-- Yandex.Metrika counter -->
-  script.
-    (function (d, w, c) {
-        (w[c] = w[c] || []).push(function() {
-            try {
-                w.yaCounter30883171 = new Ya.Metrika({id:30883171,
-                        clickmap:true,
-                        trackLinks:true,
-                        accurateTrackBounce:true});
-            } catch(e) { }
-        });
-
-        var n = d.getElementsByTagName("script")[0],
-            s = d.createElement("script"),
-            f = function () { n.parentNode.insertBefore(s, n); };
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
-
-        if (w.opera == "[object Opera]") {
-            d.addEventListener("DOMContentLoaded", f, false);
-        } else { f(); }
-    })(document, window, "yandex_metrika_callbacks");
+  script(src='js/scripts.js')
   <noscript><div><img src="//mc.yandex.ru/watch/30883171" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-  <!-- /Yandex.Metrika counter -->
