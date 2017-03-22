@@ -1,6 +1,8 @@
+// Fonts
 $comfortaa: 'Comfortaa', sans-serif;
 $poiret: 'Comfortaa', sans-serif;
 
+// Colors
 $tr-gray: #989898;
 $lt-gray: #f2f2f2;
 $sd-gray: #e5e5e5;
@@ -11,7 +13,7 @@ $blue: #BBE9DC;
 
 $bouncy: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-// breakpoints:
+// Breakpoints:
 $big: 1180px;
 $medium: 850px;
 $medium1: 730px;
@@ -21,12 +23,17 @@ $small1: 580px;
 $xsmall: 400px;
 $mobile: 320px;
 
+$custom: 1000px;
+
+// Mixins
 @mixin rainbow-line($size, $colors) {
-  $val: nth($colors, 1) 0px, nth($colors, 1) #{$size}px;
-  @for $i from 2 through length($colors) {
-    $val: $val, #{nth($colors, $i)} #{$size*($i - 1)}px, #{nth($colors, $i)} #{$size*$i}px;
-  }
-  background: repeating-linear-gradient(to right, $val);
+    $val: nth($colors, 1) 0px, nth($colors, 1) #{$size}px;
+
+    @for $i from 2 through length($colors) {
+      $val: $val, #{nth($colors, $i)} #{$size*($i - 1)}px, #{nth($colors, $i)} #{$size*$i}px;
+    }
+
+    background: repeating-linear-gradient(to right, $val);
 }
 
 @mixin min($min-width) {
