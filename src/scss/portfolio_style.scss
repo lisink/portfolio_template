@@ -9,7 +9,7 @@ body {
 
   background-color: $lt-gray;
   overflow-x: hidden;
-  
+
   &.opened {
       @include max($custom){
       overflow: hidden;
@@ -31,16 +31,16 @@ body * {
   text-decoration: none;
 
   color: inherit;
-}   
+}
 
 :visited {
   color: inherit;
-} 
+}
 
 [class$='-container'] {
   width: 1170px;
   margin: 0 auto;
-  
+
   @include max($big) {
     width: 100%;
   }
@@ -52,13 +52,13 @@ body * {
   margin-top: 13px;
 
   font: 32px 'Poiret One', sans-serif;
-  
+
   @include max($xsmall) {
     display: inline-block;
     float: none;
     margin: 20px 0;
   }
-  
+
   span:first-child {
     color: #000;
   }
@@ -66,17 +66,17 @@ body * {
   span:last-child {
     color: #7d7d7d;
   }
-  
+
   span {
     @include max($small) {
       display: none;
     }
   }
-  
+
   i {
     display: none;
     font-size: 47px;
-    
+
     @include max($small) {
       display: block;
     }
@@ -94,7 +94,7 @@ body * {
 
   text-transform: capitalize;
   z-index: 10;
-  
+
   @include max($xsmall) {
     float: none;
     margin: 0 0 20px;
@@ -108,7 +108,7 @@ body * {
 
     margin-right: 20px;
     cursor: pointer;
-    
+
     &:last-child {
       margin-right: 0;
     }
@@ -117,7 +117,7 @@ body * {
       padding: 5px 0;
       display: inline-block;
     }
-    
+
     &:after {
       position: absolute;
       bottom: 0;
@@ -129,15 +129,12 @@ body * {
       height: 2px;
 
       content: '';
-      // transition: all .4s ease;
       transition: all .4s $bouncy;
       transform: scaleX(0);
       transform-origin: 50% 0;
 
       opacity: 0;
-      // background-color: $red;
       background-color: $yellow;
-      // transition: all .3s cubic-bezier(0.275, 0.310, 0.075, 1.650);
     }
 
     &.active,
@@ -159,10 +156,10 @@ body * {
   $yellow;
   $colors: #f8b82c, #f2893b, #e3573f, #c24f79, #8966cc, #1497cb, #00b967, #9bc035;
 
-  @include rainbow-line($size2, $colors2);
+  @include rainbow-line($size2, $colors);
 
   height: 5px;
-  
+
   @include max($small) {
     height: 8px;
   }
@@ -173,7 +170,7 @@ body * {
 
   border-bottom: 2px solid $sd-gray;
   background-color: #fff;
-  
+
   @include max($xsmall) {
     min-height: 0;
     text-align: center;
@@ -204,18 +201,18 @@ body * {
 
   color: #111;
   border-bottom: 2px solid $tr-gray;
-  
+
   @include max($medium) {
     padding-left: 0;
     padding-right: 0;
   }
-  
+
   @include max(730px) {
     width: 100%;
     border: none;
     margin: 25px 0;
   }
-  
+
   li {
     position: relative;
 
@@ -226,12 +223,12 @@ body * {
     cursor: pointer;
     transition: all .4s ease;
     text-transform: capitalize;
-    
+
     @include max($medium1) {
       padding: 15px;
       margin: 0;
     }
-    
+
     &:last-child {
       margin-right: 0;
     }
@@ -256,7 +253,7 @@ body * {
       border-right: 12px solid transparent;
       border-bottom: 12px solid $tr-gray;
       border-left: 12px solid transparent;
-      
+
       @include max($medium1) {
         content: none;
       }
@@ -282,7 +279,7 @@ body * {
       }
     }
   }
-  
+
   span {
     font-family: $comfortaa;
     display: inline-block;
@@ -304,7 +301,7 @@ body * {
   height: 250px;
   margin-bottom: 30px;
   padding: 0 15px;
-  
+
   .item-cont {
     position: relative;
     display: block;
@@ -312,7 +309,7 @@ body * {
     box-shadow: 0 0 0 4px #fff, 0 0 10px 4px rgba(0,0,0,0.1);
     overflow: hidden;
     cursor: pointer;
-    
+
     height: 100%;
     img {
       max-width: 100%;
@@ -335,35 +332,31 @@ body * {
       .hr {
         transform: scaleX(1);
       }
-
-      // img {
-      // transform: scale(1.05);
-      // }
     }
   }
-  
+
   .view {
     display: inline-block;
     font-size: 42px;
 
   }
-  
+
   .item-pic {
     overflow: hidden;
 
     width: 100%;
     height: 100%;
   }
-  
+
   @include max($big) {
     width: 33.33333333%;
   }
-  
-  
+
+
   @include max($medium) {
     width: 50%;
   }
-  
+
   @include max($small2) {
     width: 100%;
   }
@@ -386,8 +379,6 @@ body * {
 
   opacity: 0;
   color: #fff;
-  // background-color: rgba(255, 255, 255, .8);
-  // color: #000;
   background-color: rgba(0, 0, 0, .7);
 
   .description-content {
@@ -421,7 +412,6 @@ body * {
 
     transform: scaleX(0);
     transform-origin: 50% 50%;
-    // background-color: #000;
 
     background-color: #fff;
   }
@@ -543,27 +533,6 @@ body * {
   color: #fff;
   background-color: #444;
 
-  /*   &:before,
-  &:after {
-    position: absolute;
-    content: "";
-    display: block;
-    left: 0;
-    height: 7px;
-  }
-  
-  &:before {
-    top: 0;
-    width: 450px;
-    background-color: $blue;
-  }
-  
-  &:after {
-    top: 7px;
-    width: 250px;
-    background-color: $yellow;
-  }
-   */
   .line {
     $size: 200;
     $color: #555;
@@ -575,7 +544,7 @@ body * {
       $color: $color + 17*$i;
       $colors: append($colors, $color);
     }
-    
+
     @include rainbow-line($size, $colors);
   }
 }
@@ -587,7 +556,7 @@ body * {
 
   li {
     display: inline-block;
-    
+
     @include max($xsmall) {
       margin: 0 7px 0 7px;
     }
@@ -661,11 +630,11 @@ body * {
 
   transition: transform .3s cubic-bezier(.7,0,.3,1);
   transform: translateX(-100%);
-  
+
   @include max($custom){
     padding: 0;
   }
-  
+
   &.opened {
     transition-duration: .5s;
     transform: translateX(0);
@@ -751,13 +720,13 @@ body * {
   transition: all .3s ease;
 
   color: #fff;
-  
+
   @include max($small){
     top: 10px;
     right: 10px;
     background-color: rgba(0,0,0,.7);
   }
-  
+
   &:hover {
     color: $yellow;
   }
@@ -773,16 +742,16 @@ body * {
   font-weight: 300;
   font-size: 17px;
   color: #fff;
-  
+
   background-color: rgba(0,0,0,.95);
 
   -webkit-backface-visibility: hidden;
-  
+
   @include max($custom) {
     overflow-y: scroll;
     padding: 30px 30px 30px 20px;
   }
-  
+
   h2 {
     margin-bottom: 25px;
 
@@ -799,28 +768,28 @@ body * {
 
     text-indent: 40px;
   }
-  
+
   a {
     color: $yellow;
     transition: color .3s ease;
-    
+
     &:hover {
       color: darken($yellow, 15%);
     }
   }
-  
+
   ul {
     list-style-type: disc;
     list-style-position: inside;
     margin-left: 40px;
     line-height: 1.5;
   }
-  
+
   @include max($small) {
     h2 {
       font-size: 24px;
     }
-    
+
     p {
       font-size: 16px;
     }
@@ -847,7 +816,7 @@ body * {
   border-radius: 5px;
   background: #fff;
   box-shadow: 0 0 0 7px rgba(210,210,210, .3);
-  
+
   @include max($mobile) {
     left: 95%;
   }
@@ -886,22 +855,22 @@ body * {
     border-bottom: 10px solid #fff;
     border-left: 10px solid transparent;
   }
-  
+
   $base-height: 18px;
   $padding: 8px;
   $mob-padding: 15px;
-  
+
   li {
     transition: background-color .3s;
 
     border-bottom: 1px solid #dbdbdb;
-    
+
     &:hover {
       background-color: rgba(210,210,210, .3);
-      
+
       div:first-child {
         margin-top: -$padding*2 - $base-height;
-        
+
         @include max($xsmall) {
           margin-top: -$mob-padding*2 - $base-height;
         }
@@ -912,24 +881,24 @@ body * {
   li:last-child {
     border: none;
   }
-  
+
   a {
     display: block;
     height: $base-height + 2*$padding;
     overflow: hidden;
-    
+
     @include max($xsmall) {
       height: $base-height + 2*$mob-padding;
     }
   }
-  
+
   div {
     padding: $padding;
     transition: all .3s ease;
     // width: 235px;
     text-align: center;
     font-family: $comfortaa;
-    
+
     @include max($xsmall) {
       padding: $mob-padding;
     }
@@ -961,7 +930,7 @@ em {
 
 .me {
   width: 250px;
-  
+
   img {
     max-width: 100%;
   }
@@ -979,7 +948,7 @@ $default-transition: all 1s ease-out;
 
     opacity: 1;
   }
-} 
+}
 
 .slide-up {
   transition: $default-transition;
@@ -1000,20 +969,20 @@ $default-transition: all 1s ease-out;
   transform: translate(-100px);
 
   opacity: 0;
-} 
+}
 
 .slide-right {
   transition: $default-transition;
   transform: translate(100px);
 
   opacity: 0;
-} 
+}
 
 .in {
   transform: translate(0);
 
   opacity: 1;
-} 
+}
 
 @for $i from 1 through 5 {
   .del#{$i} {
