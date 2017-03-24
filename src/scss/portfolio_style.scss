@@ -829,7 +829,6 @@ body * {
     $mob-padding: 15px;
 
     li {
-        text-transform: none;
         transition: background-color .3s;
 
         border-bottom: 1px solid #dbdbdb;
@@ -866,6 +865,7 @@ body * {
         transition: all .3s ease;
         text-align: center;
         font-family: $comfortaa;
+        text-transform: none;
 
         @include max($xsmall) {
             padding: $mob-padding;
