@@ -48,9 +48,9 @@ body * {
 .logo {
     float: left;
 
-    margin-top: 13px;
+    margin-top: 19px;
 
-    font: 32px 'Poiret One', sans-serif;
+    font: bold 32px 'Poiret One', sans-serif;
 
     @include max($xsmall) {
         display: inline-block;
@@ -59,16 +59,16 @@ body * {
     }
 
     span:first-child {
-        color: #000;
+        color: #b8b8b8;
     }
 
     span:last-child {
-        color: #7d7d7d;
+        color: #000;
     }
 
     span {
         @include max($small) {
-            display: none;
+        display: none;
         }
     }
 
@@ -77,7 +77,7 @@ body * {
         font-size: 47px;
 
         @include max($small) {
-            display: block;
+        display: block;
         }
     }
 }
@@ -189,6 +189,35 @@ body * {
      padding: 0 15px;
 }
 
+.header-container {
+    min-height: 85px;
+    position: relative;
+
+    .lk {
+        position: absolute;
+        width: 300px;
+        height: 85px;
+        overflow: hidden;
+        left: 135px;
+        top: 2px;
+        font-family: 'Lobster 1.4';
+        text-transform: uppercase;
+        font-size: 50px;
+        color: #ccc;
+        color: transparent;
+        background: url($lk0) 0 33px no-repeat;
+
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        @include max($xsmall) {
+            display: none;
+        }
+    }
+}
+
 .content {
      min-height: 500px;
 
@@ -220,16 +249,16 @@ body * {
     margin: 25px 0;
   }
 
-  li {
-    position: relative;
+    li {
+        position: relative;
 
-    display: inline-block;
+        display: inline-block;
 
-    margin-right: 25px;
+        margin-right: 25px;
 
-    cursor: pointer;
-    transition: all .4s ease;
-    text-transform: capitalize;
+        cursor: pointer;
+        transition: all .4s ease;
+        text-transform: capitalize;
 
     @include max($medium1) {
       padding: 15px;
@@ -646,75 +675,6 @@ body * {
         transition-duration: .5s;
         transform: translateX(0);
     }
-
-    &.style1 .about-content {
-        color: #fff;
-        background-color: rgba(67, 136, 120, .95);
-    }
-
-    &.style2 {
-        & .about-content {
-            color: #000;
-            border-radius: 3px;
-            background-color: rgba(172, 215, 203, 1);
-        }
-
-        & .about-close {
-            color: #000;
-
-            &:hover {
-                color: #fff;
-            }
-        }
-    }
-
-    &.style3 {
-        & .about-content {
-            color: #000;
-            border-radius: 3px;
-            background-color: #ec724d;
-        }
-
-        & .about-close {
-        color: #000;
-
-        &:hover {
-                color: $blue;
-            }
-        }
-    }
-
-    &.style4 {
-        & .about-content {
-            color: #000;
-            border-radius: 3px;
-            background-color: $yellow;
-        }
-
-        & .about-close {
-        color: #000;
-
-            &:hover {
-                color: $red;
-            }
-        }
-    }
-
-    &.style5 {
-        & .about-content {
-                color: #000;
-                border: 7px solid darken($blue, 5%);
-                background-color: #fff;
-            }
-
-            & .about-close {
-                color: #000;
-
-            &:hover {
-                color: #ccc;
-            }
-        }
-    }
 }
 
 .about-close {
@@ -739,7 +699,7 @@ body * {
     }
 }
 
-    .about-content {
+.about-content {
     overflow: hidden;
 
     width: 100%;
@@ -747,7 +707,7 @@ body * {
     padding: 45px 55px;
 
     font-weight: 300;
-    font-size: 17px;
+    font-size: 16px;
     color: #fff;
 
     background-color: rgba(0,0,0,.95);
@@ -794,11 +754,11 @@ body * {
 
     @include max($small) {
         h2 {
-        font-size: 24px;
+            font-size: 24px;
         }
 
         p {
-        font-size: 16px;
+            font-size: 16px;
         }
     }
 }
@@ -864,31 +824,32 @@ body * {
         border-left: 10px solid transparent;
     }
 
-  $base-height: 18px;
-  $padding: 8px;
-  $mob-padding: 15px;
+    $base-height: 18px;
+    $padding: 8px;
+    $mob-padding: 15px;
 
-  li {
-    transition: background-color .3s;
+    li {
+        text-transform: none;
+        transition: background-color .3s;
 
-    border-bottom: 1px solid #dbdbdb;
+        border-bottom: 1px solid #dbdbdb;
 
-    &:hover {
-      background-color: rgba(210,210,210, .3);
+        &:hover {
+            background-color: rgba(210,210,210, .3);
 
-      div:first-child {
-        margin-top: -$padding*2 - $base-height;
+            div:first-child {
+            margin-top: -$padding*2 - $base-height;
 
-        @include max($xsmall) {
-          margin-top: -$mob-padding*2 - $base-height;
+                @include max($xsmall) {
+                    margin-top: -$mob-padding*2 - $base-height;
+                }
+            }
         }
-      }
-    }
 
-    &:last-child {
-        border: none;
+        &:last-child {
+            border: none;
+        }
     }
-  }
 
     a {
         display: block;
@@ -936,10 +897,32 @@ em {
 }
 
 .me {
-    width: 250px;
+    width: 180px;
+    height: 180px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    overflow: hidden;
+    float: left;
+    background-color: #fff;
 
     img {
         max-width: 100%;
+    }
+
+    @include max($small) {
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+    }
+
+    @include min($medium1){
+        box-sizing: content-box;
+        border-radius: 0;
+        transform: rotate(-5deg);
+        transform: rotate3d(0, 0, 1, -5deg);
+        border: 6px solid #fff;
+        border-bottom-width: 18px;
     }
 }
 
