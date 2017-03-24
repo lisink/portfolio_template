@@ -9,7 +9,7 @@ $(document).mouseup(function (e) {
 });
 
 $('.cats li').click(function() {
-    $('.cats li').removeClass('active');
+$('.cats li').removeClass('active');
     $(this).addClass('active');
 });
 
@@ -27,9 +27,9 @@ $('.contacts-open').click(function() {
 
 $(document).ready(function(){
     $('.grid').isotope({
-    itemSelector: '.grid-item',
-    layoutMode: 'fitRows',
-    transitionDuration: '0.8s'
+        itemSelector: '.grid-item',
+        layoutMode: 'fitRows',
+        transitionDuration: '0.8s'
     });
 });
 
