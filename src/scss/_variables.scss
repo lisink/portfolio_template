@@ -30,7 +30,7 @@ $custom: 1000px;
     $val: nth($colors, 1) 0px, nth($colors, 1) #{$size}px;
 
     @for $i from 2 through length($colors) {
-      $val: $val, #{nth($colors, $i)} #{$size*($i - 1)}px, #{nth($colors, $i)} #{$size*$i}px;
+        $val: $val, #{nth($colors, $i)} #{$size*($i - 1)}px, #{nth($colors, $i)} #{$size*$i}px;
     }
 
     background: repeating-linear-gradient(to right, $val);

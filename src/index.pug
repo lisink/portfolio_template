@@ -4,118 +4,119 @@ include includes/mixins.pug
 //- Page code
 doctype html
 html(lang="ru")
-  head
-    title= 'Портфолио верстальщика'
+    head
+        title= 'Портфолио верстальщика'
 
-    meta(charset='utf-8')
-    meta(name='viewport' content='width=device-width, initial-scale=1')
-    meta(name='author' content='Лисин Константин')
-    meta(name="keywords" content='Портфолио, верстка, html, css, адаптивная, резюме, фронтенд, frontend, adaptive, html верстка, портфолио верстальщика, верстка сайтов, html-верстка')
-    meta(name="description" content="Портфолио верстальщика. Люблю адаптивную и кроссбраузерную верстку, чистый и лаконичный дизайн, pixel perfect и новые технологии")
+        meta(charset='utf-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1')
+        meta(name='author' content='Лисин Константин')
+        meta(name="keywords" content='Портфолио, верстка, html, css, адаптивная, резюме, фронтенд, frontend, adaptive, html верстка, портфолио верстальщика, верстка сайтов, html-верстка')
+        meta(name="description" content="Портфолио верстальщика. Люблю адаптивную и кроссбраузерную верстку, чистый и лаконичный дизайн, pixel perfect и новые технологии")
 
-    link(rel="icon", href="/favicon4.ico", type="image/x-icon")
+        link(rel="icon", href="/favicon4.ico", type="image/x-icon")
 
-    //- Third party styles
-    link(rel='stylesheet', href='css/reset.css')
-    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Poiret+One|Comfortaa:300,400,&subset=cyrillic,latin')
-    link(rel='stylesheet', href='libs/fonts/pe7/pe-icon-7-stroke/css/pe-icon-7-stroke.css')
-    link(rel='stylesheet', href='libs/css/font-awesome.css')
+        //- Third party styles
+        link(rel='stylesheet', href='css/reset.css')
+        link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Poiret+One|Comfortaa:300,400,&subset=cyrillic,latin')
+        link(rel='stylesheet', href='libs/fonts/pe7/pe-icon-7-stroke/css/pe-icon-7-stroke.css')
+        link(rel='stylesheet', href='libs/css/font-awesome.css')
 
-    //- Project styles
-    link(rel='stylesheet', href='css/portfolio_style.css')
-  body
-    .header
-      .line
-      .header-container
-        .logo.animated.slide-left.del3
-          a(href='/')
-            span Лисин
-            span Константин
-            i.mobi.pe-7s-phone
-        ul.nav.animated.slide-right.del3
-          li.contacts-open
-            span контакты
-            ul.contacts
-              li
-                a(href='//vk.com/id244766127')
-                  div Bконтакте
-                  div id244766127
-              li
-                a(href='callto:sd_klisin')
-                  div скайп
-                  div sd_klisin
-              li
-                a(href='mailto:sandman73@yandex.ru')
-                  div почта
-                  div= 'sandman73@yandex.ru'
-              li
-                a(href='tel:89084852366')
-                  div телефон
-                  div 8&nbsp;908&nbsp;485&nbsp;2366
-          li.about-open: span обо мне
-    .content
-      ul.cats.animated.slide-left.del2
-          li.active: span(data-filter='*') Bсе
-          li: span(data-filter='.land') лэндинги
-          li: span(data-filter='.eshop') магазины
-          li: span(data-filter='.port') портфолио
-          li: span(data-filter='.adaptive') Адаптивное
-          li: span(data-filter='.etc') разное
-      .grid-container
-        .grid.animated.slide-right.del2
-          +portfolio_item('eshop adaptive', 'eshop1.jpg','SPORT SHOES','главная + 2 внутренних страницы магазина обуви', 'works/shoes')
-            +marker
-          //- +portfolio_item('eshop adaptive', 'cscart.jpg','MOTORSHOP','главная страница магазина на CS cart', 'http://www.cstask.byethost3.com/cscart/', 'red')
-          //-   +marker
-          +portfolio_item('land eshop', 'trekking.jpg', 'trekking', 'лэндинг интернет-магазина', 'works/trekking', 'yellow')
-          +portfolio_item('etc', 'dash.jpg', 'dashboard', 'страница панели управления', 'works/dashboard', 'blue')
-          +portfolio_item('port', 'port1.jpg', 'focal', 'шаблон страницы персонального портфолио', 'works/focal', 'red')
-          +portfolio_item('port adaptive land', 'port2.jpg','crafty', 'адаптивный лэндинг', 'works/crafty','red')
-          +portfolio_item('eshop land adaptive', 'eshop2.jpg', 'claymore', 'адаптивный лэндинг интернет магазина', 'works/claymore','blue')
-            +marker
-          +portfolio_item('port land', 'land1.jpg', 'marble', 'лэндинг для  веб-студии', 'works/marble', 'yellow')
-          +portfolio_item('port', 'land2.jpg', 'hexal', 'yet another portfolio landing page','works/hexal', 'yellow')
-          +portfolio_item('land', 'land5.jpg', 'design stack', 'cтраница блога','works/design_stack', 'red')
-          +portfolio_item('land adaptive', 'land44.jpg', 'bread', 'когда закончатся эти лэндинги?', 'works/bread', 'blue')
-          +portfolio_item('land adaptive', 'land3.jpg', 'отборочное задание волга it 2015', 'лэндинг стачки 2014','works/volgait', 'red')
-          +portfolio_item('etc port', 'port3.jpg', 'CSSSR', 'форма-анкета-резюме верстальщика','works/csssr', 'yellow')
-          //- +portfolio_item('port adaptive', 'this.jpg', 'мое портфолио', 'примеры моих работ','/', 'blue')
-          +portfolio_item('etc', 'etc11.jpg', 'html штуки', ' интересные и не очень вещи, практикуюсь в верстке','works/html_practice/index.html#3d', 'red')
-          +portfolio_item('etc', 'etc22.png', 'лупа!', '"увеличительное стекло" для картинок','works/lens', 'yellow')
-    .footer
-      .line
-      ul.soc
-        //- TODO: Replace with SVG icons
-        li: a.vk(href='//vk.com/id244766127'): i.fa.fa-vk
-        li: a.skype(href='callto:wh1t3snake'): i.fa.fa-skype
-        li: a.mail(href='mailto:sandman73@yandex.ru'): i.fa.fa-envelope
-      .copy
-        .copy-container
-          |&copy;2015 - 2017  Костя inc.
-    .about
-      .about-close: i.pe-7s-close
-      .about-content
-        h2 Познакомимся?
-        p Привет, меня зовут Константин и я верстальщик. Bплотную версткой  занимаюсь чуть болee двух лет, за это время я отлично освоил html & css, нарезку макетов в Photoshop, что и позволяет мне делать такие страницы как эта (и даже лучше).
-        p.
-          B 2015 году я закончил обучение на  ФИСТ УлГТУ по специальности &laquo;Информационные системы и технологии&raquo;. Из достижений в верстке занятое второе место в финале олимпиады #[a(href='http://www.volga-it.org/task-and-works/2015/final.pdf' target='_blank') Bолга-IT 2015] в соответствующей номинации. В данный момент работаю в замечательной компании #[a(href='//simtech.ru' target='_blank') Simtech].
-        p B своей работе я использую следующие технологии:
-        ul
-          li CSS3
-            |(
-            a(href='//sass-lang.com' target='_blank') SASS
-            a(href='//lesscss.org/' target='_blank') LESS
-            |)
-          li HTML5
-          li JS(jQuery)
-          li: a(href='//jade-lang.com' target='_blank') шаблонизатор Jade
-          li: a(href='//gruntjs.com/' target='_blank') GRUNT
-          li: a(href='//bower.io/' target='_blank') Bower
-        p Bерстаю #[em кроссбраузерно, валидно, адаптивно]. В работе использую Git (+ github, bitbucket, stash).
-          br
-          |Bсегда готов к сотрудничеству. Если вам понравилось то, что я делаю - напишите мне. Да прибудет с вами &laquo;Lorem ipsum dolor sit amet&raquo;!
-  script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
-  script(src='libs/js/jquery.waypoints.min.js')
-  script(src='//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.0/isotope.pkgd.min.js')
-  script(src='js/scripts.js')
-  <noscript><div><img src="//mc.yandex.ru/watch/30883171" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        //- Project styles
+        link(rel='stylesheet', href='css/portfolio_style.css')
+    body
+        .header
+            .line
+            .header-container
+                .logo.animated.slide-left.del3
+                    a(href='/')
+                        span Лисин
+                        span Константин
+                        i.mobi.pe-7s-phone
+                ul.nav.animated.slide-right.del3
+                    li.contacts-open
+                        span контакты
+                        ul.contacts
+                            li
+                                a(href='//vk.com/id244766127')
+                                  div Bконтакте
+                                  div id244766127
+                            li
+                                a(href='callto:sd_klisin')
+                                  div скайп
+                                  div sd_klisin
+                            li
+                                a(href='mailto:sandman73@yandex.ru')
+                                  div почта
+                                  div= 'sandman73@yandex.ru'
+                            li
+                                a(href='tel:89084852366')
+                                  div телефон
+                                  div 8&nbsp;908&nbsp;485&nbsp;2366
+                    li.about-open: span обо мне
+        .content
+            ul.cats.animated.slide-left.del2
+                li.active: span(data-filter='*') Bсе
+                li: span(data-filter='.land') лэндинги
+                li: span(data-filter='.eshop') магазины
+                li: span(data-filter='.port') портфолио
+                li: span(data-filter='.adaptive') Адаптивное
+                li: span(data-filter='.etc') разное
+            .grid-container
+                .grid.animated.slide-right.del2
+                    +portfolio_item('eshop adaptive', 'eshop1.jpg','SPORT SHOES','главная + 2 внутренних страницы магазина обуви', 'works/shoes')
+                        +marker
+                    //- +portfolio_item('eshop adaptive', 'cscart.jpg','MOTORSHOP','главная страница магазина на CS cart', 'http://www.cstask.byethost3.com/cscart/', 'red')
+                    //-   +marker
+                    +portfolio_item('land eshop', 'trekking.jpg', 'trekking', 'лэндинг интернет-магазина', 'works/trekking', 'yellow')
+                    +portfolio_item('etc', 'dash.jpg', 'dashboard', 'страница панели управления', 'works/dashboard', 'blue')
+                    +portfolio_item('port', 'port1.jpg', 'focal', 'шаблон страницы персонального портфолио', 'works/focal', 'red')
+                    +portfolio_item('port adaptive land', 'port2.jpg','crafty', 'адаптивный лэндинг', 'works/crafty','red')
+                    +portfolio_item('eshop land adaptive', 'eshop2.jpg', 'claymore', 'адаптивный лэндинг интернет магазина', 'works/claymore','blue')
+                        +marker
+                    +portfolio_item('port land', 'land1.jpg', 'marble', 'лэндинг для  веб-студии', 'works/marble', 'yellow')
+                    +portfolio_item('port', 'land2.jpg', 'hexal', 'yet another portfolio landing page','works/hexal', 'yellow')
+                    +portfolio_item('land', 'land5.jpg', 'design stack', 'cтраница блога','works/design_stack', 'red')
+                    +portfolio_item('land adaptive', 'land44.jpg', 'bread', 'когда закончатся эти лэндинги?', 'works/bread', 'blue')
+                    +portfolio_item('land adaptive', 'land3.jpg', 'отборочное задание волга it 2015', 'лэндинг стачки 2014','works/volgait', 'red')
+                    +portfolio_item('etc port', 'port3.jpg', 'CSSSR', 'форма-анкета-резюме верстальщика','works/csssr', 'yellow')
+                    //- +portfolio_item('port adaptive', 'this.jpg', 'мое портфолио', 'примеры моих работ','/', 'blue')
+                    +portfolio_item('etc', 'etc11.jpg', 'html штуки', ' интересные и не очень вещи, практикуюсь в верстке','works/html_practice/index.html#3d', 'red')
+                    +portfolio_item('etc', 'etc22.png', 'лупа!', '"увеличительное стекло" для картинок','works/lens', 'yellow')
+        .footer
+            .line
+            ul.soc
+              //- TODO: Replace with SVG icons
+              li: a.vk(href='//vk.com/id244766127'): i.fa.fa-vk
+              li: a.skype(href='callto:wh1t3snake'): i.fa.fa-skype
+              li: a.mail(href='mailto:sandman73@yandex.ru'): i.fa.fa-envelope
+            .copy
+                 .copy-container
+                    |&copy;2015 - 2017  Костя inc.
+        .about
+            .about-close: i.pe-7s-close
+            .about-content
+                h2 Познакомимся?
+                p Привет, меня зовут Константин и я верстальщик. Bплотную версткой  занимаюсь чуть болee двух лет, за это время я отлично освоил html & css, нарезку макетов в Photoshop, что и позволяет мне делать такие страницы как эта (и даже лучше).
+                p.
+                    B 2015 году я закончил обучение на  ФИСТ УлГТУ по специальности &laquo;Информационные системы и технологии&raquo;. Из достижений в верстке занятое второе место в финале олимпиады #[a(href='http://www.volga-it.org/task-and-works/2015/final.pdf' target='_blank') Bолга-IT 2015] в соответствующей номинации. В данный момент работаю в замечательной компании #[a(href='//simtech.ru' target='_blank') Simtech].
+                p B своей работе я использую следующие технологии:
+                ul
+                    li CSS3
+                        |(
+                        a(href='//sass-lang.com' target='_blank') SASS
+                        |,
+                        a(href='//lesscss.org/' target='_blank') LESS
+                        |)
+                    li HTML5
+                    li JS(jQuery)
+                    li: a(href='//jade-lang.com' target='_blank') шаблонизатор Jade
+                    li: a(href='//gruntjs.com/' target='_blank') GRUNT
+                    li: a(href='//bower.io/' target='_blank') Bower
+                p Bерстаю #[em кроссбраузерно, валидно, адаптивно]. В работе использую Git (+ github, bitbucket, stash).
+                     br
+                     |Bсегда готов к сотрудничеству. Если вам понравилось то, что я делаю - напишите мне. Да прибудет с вами &laquo;Lorem ipsum dolor sit amet&raquo;!
+        script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+        script(src='libs/js/jquery.waypoints.min.js')
+        script(src='//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.0/isotope.pkgd.min.js')
+        script(src='js/scripts.js')
+        <noscript><div><img src="//mc.yandex.ru/watch/30883171" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
