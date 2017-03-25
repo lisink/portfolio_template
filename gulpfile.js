@@ -44,17 +44,12 @@ gulp.task('build_css', function () {
     return mergedStream;
 });
 
-gulp.task('autoprefixer', function () {
+gulp.task('clean_css', function () {
     return  gulp.src('../lisink.github.io/css/styles.css')
             .pipe(autoprefixer({
                 browsers: ['last 2 versions'],
                 cascade: false
             }))
-            .pipe(gulp.dest('../lisink.github.io/css'));
-});
-
-gulp.task('minify_css', function () {
-    return  gulp.src('../lisink.github.io/css/styles.css')
             .pipe(cleanCSS({
                 specialComments: false,
             }))
@@ -76,4 +71,4 @@ gulp.task('build_html_prod', function buildHTML() {
 });
 
 gulp.task('build', ['build_html', 'build_css']);
-gulp.task('build_prod', ['build_html_prod', 'autoprefixer', 'minify_css']);
+gulp.task('build_prod', ['build_html_prod', 'clean_css']);
