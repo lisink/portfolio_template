@@ -243,11 +243,11 @@ body * {
         padding-right: 0;
     }
 
-  @include max(730px) {
-    width: 100%;
-    border: none;
-    margin: 25px 0;
-  }
+    @include max(730px) {
+        width: 100%;
+        border: none;
+        margin: 25px 0;
+    }
 
     li {
         position: relative;
