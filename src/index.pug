@@ -5,6 +5,14 @@ include includes/mixins.pug
 doctype html
 html(lang="ru")
     head
+        //-  Google Tag Manager
+        script.
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+             })(window,document,'script','dataLayer','GTM-W87RHFK');
+
         title= 'Портфолио верстальщика'
 
         meta(charset='utf-8')
@@ -117,4 +125,4 @@ html(lang="ru")
         script(src='libs/js/jquery.waypoints.min.js')
         script(src='//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.0/isotope.pkgd.min.js')
         script(src='js/scripts.js')
-        <noscript><div><img src="//mc.yandex.ru/watch/30883171" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W87RHFK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>

@@ -1,19 +1,41 @@
 'use strict';
 
+//Gulp
 var gulp = require('gulp');
+
+//Compilers for sass and pug
 var sass = require('gulp-sass');
 var pug = require('gulp-pug');
-var csscomb = require('gulp-csscomb');
+
+//Plugins for work with streams
 var addSrc = require('gulp-add-src');
 var merge = require('merge-stream');
+
+//Css building plugins
+var csscomb = require('gulp-csscomb');
 var cleanCSS = require('gulp-clean-css');
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
 const concat = require('gulp-concat')
+
+//Js building plugins
+var minify = require('gulp-minify');
+
 const imagemin = require('gulp-imagemin');
 
 var gls = require('gulp-live-server');
+// var gulpCopy = require('gulp-copy');
 
+// Custom functions & variables
+
+var outputPath = '../lisink.github.io';
+
+function swallowError (error) {
+    console.log(error.toString())
+    this.emit('end')
+}
+
+// Tasks
 gulp.task('default', function () {
     console.log('test echo');
 });
@@ -21,7 +43,7 @@ gulp.task('default', function () {
 gulp.task('sass', function () {
   return gulp.src('./src/scss/**/*.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('../lisink.github.io/css'));
+    .pipe(gulp.dest(outputPath+'/css'));
 });
 
 gulp.task('csscomb', function () {
@@ -38,18 +60,18 @@ gulp.task('build_css', function () {
 
     var scss = gulp.src('./src/scss/**/*.scss')
         .pipe(sourcemaps.init())
-        .pipe(sass().on('error', sass.logError));
+        .pipe(sass()).on('error', swallowError);
 
     var mergedStream = merge(css, scss)
         .pipe(concat('styles.css'))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('../lisink.github.io/css'));
+        .pipe(gulp.dest(outputPath+'/css'));
 
     return mergedStream;
 });
 
 gulp.task('clean_css', function () {
-    return  gulp.src('../lisink.github.io/css/styles.css')
+    return  gulp.src(outputPath + 'css/styles.css')
             .pipe(autoprefixer({
                 browsers: ['last 2 versions'],
                 cascade: false
@@ -57,7 +79,7 @@ gulp.task('clean_css', function () {
             .pipe(cleanCSS({
                 specialComments: false,
             }))
-            .pipe(gulp.dest('../lisink.github.io/css'));
+            .pipe(gulp.dest(outputPath+'/css'));
 });
 
 gulp.task('build_html', function buildHTML() {
@@ -65,7 +87,8 @@ gulp.task('build_html', function buildHTML() {
         .pipe(pug({
             pretty: true
         }))
-        .pipe(gulp.dest('../lisink.github.io'));
+        .on('error', swallowError)
+        .pipe(gulp.dest(outputPath));
 });
 
 gulp.task('build_html_prod', function buildHTML() {
@@ -79,31 +102,50 @@ gulp.task('serve', function() {
     var server = gls.static(['../lisink.github.io']);
     server.start();
 
-    //use gulp.watch to trigger server actions(notify, start or stop)
-    gulp.watch(['../lisink.github.io/css/styles.css', '../lisink.github.io/**/*.html'], function (file) {
+    //using gulp.watch to trigger server actions(notify, start or stop)
+    gulp.watch([outputPath+'/css/styles.css', outputPath+'/**/*.html'], function (file) {
         server.notify.apply(server, [file]);
     });
 });
 
 gulp.task('watch', function() {
-    var watcher1 = gulp.watch('./src/**/*.pug', ['build_html']);
-    var watcher2 = gulp.watch('./src/scss/**/*.scss', ['build_css']);
+    var pug_watcher = gulp.watch('./src/**/*.pug', ['build_html']);
+    var scss_watcher = gulp.watch('./src/scss/**/*.scss', ['build_css']);
+    var js_watcher = gulp.watch('./src/js/*.js', ['build_js']);
 
-    watcher1.on('change', function(event) {
+    pug_watcher.on('change', function(event) {
         console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     });
 
-    watcher2.on('change', function(event) {
+    scss_watcher.on('change', function(event) {
+        console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+    });
+
+    js_watcher.on('change', function(event) {
         console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     });
 });
 
 gulp.task('imagemin', () =>
-    gulp.src('../lisink.github.io/i/*')
+    gulp.src(outputPath+'/i/*')
         .pipe(imagemin())
-        .pipe(gulp.dest('../lisink.github.io/i/min'))
+        .pipe(gulp.dest(outputPath+'/i/min'))
 );
 
-gulp.task('build', ['build_html', 'build_css']);
+gulp.task('build_js', function() {
+  gulp.src('./src/js/*.js')
+    .pipe(concat('scripts.js'))
+    .pipe(minify({
+        ext:{
+            src:'-debug.js',
+            min:'.js'
+        },
+        exclude: ['tasks'],
+        ignoreFiles: ['.combo.js', '-min.js']
+    }))
+    .pipe(gulp.dest(outputPath+'/js'))
+});
+
+gulp.task('build', ['build_html', 'build_css', 'build_js']);
 gulp.task('build_prod', ['build_html_prod', 'clean_css']);
 gulp.task('server', ['serve', 'watch']);
