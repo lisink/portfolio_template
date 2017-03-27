@@ -71,7 +71,7 @@ gulp.task('build_css', function () {
 });
 
 gulp.task('clean_css', function () {
-    return  gulp.src(outputPath + 'css/styles.css')
+    return  gulp.src(outputPath + '/css/styles.css')
             .pipe(autoprefixer({
                 browsers: ['last 2 versions'],
                 cascade: false
