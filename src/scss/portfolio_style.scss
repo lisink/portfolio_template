@@ -350,9 +350,6 @@ body * {
 
         img {
             max-width: 100%;
-
-            transition: transform .3s;
-            transform: scale(1);
         }
 
 
@@ -499,29 +496,53 @@ body * {
         color: #a0a0a0;
         font-weight: 300;
     }
+}
 
-    .underline {
-        width: 40px;
-        height: 3px;
-        margin: 15px auto;
+.underline {
+    width: 40px;
+    height: 3px;
+    margin: 15px auto;
 
+    background-color: $blue;
+}
+
+.year {
+    font-size: 14px;
+    font-weight: 100;
+    color: $blue;
+}
+
+.blue {
+    & .underline {
         background-color: $blue;
     }
 
-    .blue {
-        background-color: $blue;
-    }
-
-    .yellow {
-        background-color: $yellow;
-    }
-
-    .red {
-        background-color: $red;
+    & .year {
+        color: $blue;
     }
 }
 
-    .item-cont {
+.yellow {
+    & .underline {
+        background-color: $yellow;
+    }
+
+    & .year {
+        color: $yellow;
+    }
+}
+
+.red {
+    & .underline {
+        background-color: $red;
+    }
+
+    & .year {
+        color: $red;
+    }
+}
+
+.item-cont {
     &.active,
     &:hover {
         .alt-description {
@@ -642,7 +663,7 @@ body * {
 .copy {
     padding: 25px 0 20px;
 
-    text-align: right;
+    text-align: center;
 
     color: #5e5e5e;
     background-color: #333;
