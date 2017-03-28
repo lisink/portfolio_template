@@ -31,19 +31,13 @@ var gls = require('gulp-live-server');
 var outputPath = '../lisink.github.io';
 
 function swallowError (error) {
-    console.log(error.toString())
+    console.log(error.toString());
     this.emit('end')
 }
 
 // Tasks
 gulp.task('default', function () {
     console.log('test echo');
-});
-
-gulp.task('sass', function () {
-  return gulp.src('./src/scss/**/*.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest(outputPath+'/css'));
 });
 
 gulp.task('csscomb', function () {
@@ -62,7 +56,7 @@ gulp.task('build_css', function () {
         .pipe(sourcemaps.init())
         .pipe(sass()).on('error', swallowError);
 
-    var mergedStream = merge(css, scss)
+    var mergedStream = merge(css, scss).on('error', swallowError)
         .pipe(concat('styles.css'))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(outputPath+'/css'));
