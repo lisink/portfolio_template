@@ -68,16 +68,16 @@ body * {
 
     span {
         @include max($small) {
-        display: none;
+          display: none;
         }
     }
 
-    i {
+    svg {
         display: none;
         font-size: 47px;
 
         @include max($small) {
-        display: block;
+         display: block;
         }
     }
 }
@@ -606,10 +606,10 @@ body * {
     }
 }
 
-.soc {
+.social {
     padding: 28px 0 20px;
 
-    font-size: 21px;
+    font-size: 0;
 
     li {
         display: inline-block;
@@ -631,10 +631,11 @@ body * {
         background-color: #333;
     }
 
-    i {
+    svg {
         position: absolute;
         top: 50%;
         left: 50%;
+        fill: #fff;
 
         transform: translate(-50%, -50%);
     }
@@ -698,23 +699,23 @@ body * {
 
 .about-close {
     position: absolute;
-    top: 40px;
-    right: 40px;
-    line-height: 40px;
-    font-size: 52px;
+    top: 55px;
+    right: 55px;
     cursor: pointer;
     transition: all .3s ease;
+    font-size: 0;
 
-    color: #fff;
+    fill: #fff;
 
     @include max($small){
-        top: 10px;
-        right: 10px;
+        top: 23px;
+        right: 25px;
+        padding: 10px;
         background-color: rgba(0,0,0,.7);
     }
 
     &:hover {
-        color: $yellow;
+        fill: $yellow;
     }
 }
 
@@ -910,7 +911,7 @@ em {
     right: 5px;
     z-index: 10;
     font-size: 32px;
-    color: #fff;
+    fill: #fff;
     background-color: rgb(42, 145, 67);
     border-radius: 50%;
 }
@@ -943,6 +944,10 @@ em {
         border: 6px solid #fff;
         border-bottom-width: 18px;
     }
+}
+
+.hidden {
+    display: none;
 }
 
 $default-transition: all 1s ease-out;

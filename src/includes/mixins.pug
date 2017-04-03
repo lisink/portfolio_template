@@ -1,5 +1,5 @@
 mixin marker
-  i.marker.pe-7s-check
+    +svg_icon('check')&attributes({class: 'marker', viewBox: '0 0 864 1024'})
 
 mixin portfolio_item(category, img, name, description, link, color, year)
     .grid-item(class= category)
@@ -9,8 +9,12 @@ mixin portfolio_item(category, img, name, description, link, color, year)
                     h3= name
                     p= description
                     .underline
-                    i.view.pe-7s-search
+                    +svg_icon('search')
                     .year= year ? year : 2015
             .item-pic: img(src= 'i/min/'+img, class!= attributes.class)
             if block
                 block
+
+mixin svg_icon(name, width, height)
+    svg(width= (width? width: 35) height= (height? height: 35) viewBox='0 0 1024 1024')&attributes(attributes)
+        <use xlink:href="##{name}"/>
