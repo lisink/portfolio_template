@@ -24,6 +24,7 @@ var minify = require('gulp-minify');
 const imagemin = require('gulp-imagemin');
 
 var gls = require('gulp-live-server');
+var watch = require('gulp-watch');
 // var gulpCopy = require('gulp-copy');
 
 // Custom functions & variables
@@ -47,7 +48,7 @@ gulp.task('csscomb', function () {
 });
 
 gulp.task('build_css', function () {
-    var css = gulp.src(['./src/css/**/*.css', '!./src/css/reset.css'])
+    var css = gulp.src(['./src/css/**/*.css', '!./src/css/reset.css', '!./src/css/old/*.css'])
         .pipe(addSrc.prepend('./src/css/reset.css'))
         .pipe(addSrc.prepend('./src/css/google_fonts.css'))
         .pipe(sourcemaps.init());
@@ -88,12 +89,12 @@ gulp.task('build_html', function buildHTML() {
 gulp.task('build_html_prod', function buildHTML() {
     return gulp.src('./src/*.pug')
         .pipe(pug())
-        .pipe(gulp.dest('../lisink.github.io'));
+        .pipe(gulp.dest(outputPath));
 });
 
 
 gulp.task('serve', function() {
-    var server = gls.static(['../lisink.github.io']);
+    var server = gls.static(outputPath);
     server.start();
 
     //using gulp.watch to trigger server actions(notify, start or stop)
@@ -120,6 +121,19 @@ gulp.task('watch', function() {
     });
 });
 
+gulp.task('watch2', function () {
+    // Endless stream mode
+    watch('src/**/*.pug', function () {
+        gulp.start('build_html');
+    });
+    watch('src/scss/**/*.scss', function () {
+        gulp.start('build_css');
+    });
+    watch('src/js/*.js', function () {
+        gulp.start('build_js');
+    });
+});
+
 gulp.task('imagemin', () =>
     gulp.src(outputPath+'/i/*')
         .pipe(imagemin())
@@ -142,4 +156,4 @@ gulp.task('build_js', function() {
 
 gulp.task('build', ['build_html', 'build_css', 'build_js']);
 gulp.task('build_prod', ['build_html_prod', 'clean_css']);
-gulp.task('server', ['serve', 'watch']);
+gulp.task('server', ['serve', 'watch2']);

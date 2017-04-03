@@ -3,3 +3,5 @@
 /bower_components/
 /tmp_assets/
 /lisink.github.io/
+**/old/*
+**/old/
