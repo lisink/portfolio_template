@@ -14,21 +14,19 @@ var merge = require('merge-stream');
 //Css building plugins
 var csscomb = require('gulp-csscomb');
 var cleanCSS = require('gulp-clean-css');
-const sourcemaps = require('gulp-sourcemaps');
-const autoprefixer = require('gulp-autoprefixer');
-const concat = require('gulp-concat')
+var sourcemaps = require('gulp-sourcemaps');
+var autoprefixer = require('gulp-autoprefixer');
+var concat = require('gulp-concat')
 
 //Js building plugins
 var minify = require('gulp-minify');
 
-const imagemin = require('gulp-imagemin');
+var imagemin = require('gulp-imagemin');
 
 var gls = require('gulp-live-server');
 var watch = require('gulp-watch');
-// var gulpCopy = require('gulp-copy');
 
 // Custom functions & variables
-
 var outputPath = '../lisink.github.io';
 
 function swallowError (error) {
@@ -50,7 +48,6 @@ gulp.task('csscomb', function () {
 gulp.task('build_css', function () {
     var css = gulp.src(['./src/css/**/*.css', '!./src/css/reset.css', '!./src/css/old/*.css'])
         .pipe(addSrc.prepend('./src/css/reset.css'))
-        .pipe(addSrc.prepend('./src/css/google_fonts.css'))
         .pipe(sourcemaps.init());
 
     var scss = gulp.src('./src/scss/**/*.scss')

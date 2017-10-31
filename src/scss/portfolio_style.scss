@@ -36,8 +36,8 @@ body * {
     color: inherit;
 }
 
-[class$='-container'] {
-    width: 1170px;
+[class*='-container'] {
+    width: $container-width;
     margin: 0 auto;
 
     @include max($big) {
@@ -50,7 +50,7 @@ body * {
 
     margin-top: 19px;
 
-    font: bold 32px 'Poiret One', sans-serif;
+    font: bold 32px $poiret;
 
     @include max($xsmall) {
         display: inline-block;
@@ -219,7 +219,7 @@ body * {
 }
 
 .content {
-     min-height: 500px;
+    //  min-height: 500px;
 
     text-align: center;
      overflow: hidden;
@@ -322,148 +322,73 @@ body * {
     }
 }
 
-.grid-container {
-     min-height: 500px;
-     margin-bottom: 50px;
-}
-
 .grid {
-     height: 100%;
-}
+    transition: height .8s ease-out;
 
+    &-container {
+        min-height: 500px;
+        margin-bottom: 50px;
+    }
 
-.grid-item {
-    width: 1170/4*1px;
-    height: 250px;
-    margin-bottom: 30px;
-    padding: 0 15px;
-
-    .item-cont {
-        position: relative;
-        display: block;
-        background-color: #ccc;
-        box-shadow: 0 0 0 4px #fff, 0 0 10px 4px rgba(0,0,0,0.1);
+    &-item {
+        width: $container-width / 4 - 15 * 2;
+        height: 250px;
+        margin: 10px 15px 20px;
         overflow: hidden;
-        cursor: pointer;
+        box-shadow: 0 0 0 4px #fff, 0 0 10px 4px rgba(0,0,0,0.1);
 
-         height: 100%;
+        &-content {
+            position: relative;
+            display: block;
+            background-color: #ccc;
 
-        img {
-            max-width: 100%;
+            overflow: hidden;
+            cursor: pointer;
+            transform: translateY(-250px);
+            height: 200%;
+            transition: transform .2s ease-in;
+
+            img {
+                max-width: 100%;
+            }
         }
-
 
         &:hover {
-            .hover-description {
-                opacity: 1;
-            }
-
-            p,
-            h3 {
+            .grid-item-content {
                 transform: translate(0);
             }
+        }
 
-            .hr {
-                transform: scaleX(1);
-            }
+        .view {
+            display: inline-block;
+            font-size: 42px;
+        }
+
+        .item-pic {
+            overflow: hidden;
+
+            width: 100%;
+        }
+
+        @include max($big) {
+            width: 33.33333333%;
+        }
+
+        @include max($medium) {
+            width: 50%;
+        }
+
+        @include max($small2) {
+            width: 100%;
         }
     }
-
-    .view {
-        display: inline-block;
-        font-size: 42px;
-    }
-
-    .item-pic {
-        overflow: hidden;
-
-        width: 100%;
-        height: 100%;
-    }
-
-    @include max($big) {
-        width: 33.33333333%;
-    }
-
-    @include max($medium) {
-        width: 50%;
-    }
-
-    @include max($small2) {
-        width: 100%;
-    }
 }
-
-.hover-description {
-    position: absolute;
-    z-index: 100;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-
-    width: 93%;
-    height: 93%;
-    margin: auto;
-    padding: 15px;
-    cursor: pointer;
-    transition: opacity .3s;
-
-    opacity: 0;
-    color: #fff;
-    background-color: rgba(0, 0, 0, .7);
-
-    .description-content {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-
-        width: 95%;
-
-        transform: translate(-50%, -50%);
-    }
-
-    h3,
-    p,
-    .hr {
-        transition: transform .3s;
-    }
-
-    h3 {
-        font-size: 22px;
-        font-weight: bold;
-
-        transform: translateY(-60px);
-        text-transform: uppercase;
-    }
-
-    .hr {
-        width: 55px;
-        height: 2px;
-        margin: 15px auto;
-
-        transform: scaleX(0);
-        transform-origin: 50% 50%;
-
-        background-color: #fff;
-     }
-
-    p {
-        line-height: 1.2;
-
-        transform: translateY(60px);
-
-        color: #e6e6e6;
-    }
-}
-
 
 .alt-description {
     position: relative;
 
     width: 100%;
-    height: 100%;
-    margin-top: -250px;
+    height: 50%;
 
     transition: margin .2s cubic-bezier(.420, .000, 1.000, 1.000);
 
@@ -633,11 +558,9 @@ body * {
 
     svg {
         position: absolute;
-        top: 50%;
-        left: 50%;
         fill: #fff;
 
-        transform: translate(-50%, -50%);
+        @include absolute_center();
     }
 
     .vk {
@@ -678,14 +601,13 @@ body * {
     position: fixed;
     z-index: 1000;
     top: 0;
-    left: 0;
+    left: -100%;
 
     width: 100%;
     height: 100%;
     padding: 25px;
 
-    transition: transform .3s cubic-bezier(.7,0,.3,1);
-    transform: translateX(-100%);
+    transition: left .3s cubic-bezier(.7, 0, .3, 1);
 
     @include max($custom){
         padding: 0;
@@ -693,7 +615,7 @@ body * {
 
     &.opened {
         transition-duration: .5s;
-        transform: translateX(0);
+        left: 0;
     }
 }
 
@@ -950,7 +872,6 @@ em {
     display: none;
 }
 
-$default-transition: all 1s ease-out;
 .scale-up {
     transition: $default-transition;
     transform: scale(0);

@@ -1,19 +1,19 @@
 mixin marker
     +svg_icon('check')&attributes({class: 'marker', viewBox: '0 0 864 1024'})
 
-mixin portfolio_item(category, img, name, description, link, color, year)
-    .grid-item(class= category)
-        a.item-cont(href= link target='_blank')
+mixin portfolio_item(item)
+    .grid-item(class= item.category)
+        a.grid-item-content(href= item.link target='_blank')
             .alt-description
-                .alt-content(class= color)
-                    h3= name
-                    p= description
+                .alt-content(class= item.color)
+                    h3= item.name
+                    p= item.description
                     .underline
                     +svg_icon('search')
-                    .year= year ? year : 2015
-            .item-pic: img(src= 'i/min/'+img, class!= attributes.class)
-            if block
-                block
+                    .year= item.year ? item.year : 2015
+            .item-pic: img(src= 'i/min/'+item.img, class!= attributes.class)
+            if item.marker
+                +marker()
 
 mixin svg_icon(name, width, height)
     svg(width= (width? width: 35) height= (height? height: 35) viewBox='0 0 1024 1024')&attributes(attributes)

@@ -1,0 +1,164 @@
+-
+    var portfolio_items = [
+        {
+           category: 'eshop adaptive',
+           img: 'eshop1.jpg',
+           name: 'SPORT SHOES',
+           descripion: 'главная + 2 внутренних страницы магазина обуви',
+           link: 'works/shoes',
+           color: '',
+           year: '',
+           marker: true
+        },
+        {
+           category: 'land eshop',
+           img: 'trekking.jpg',
+           name: 'trekking',
+           descripion: 'лэндинг интернет-магазина',
+           link: 'works/trekking',
+           color: 'yellow',
+           year: ''
+        },
+        {
+           category: 'etc',
+           img: 'dash.jpg',
+           name: 'dashboard',
+           descripion: 'страница панели управления',
+           link: 'works/dashboard',
+           color: 'blue',
+           year: ''
+        },
+        {
+           category: 'port',
+           img: 'port1.jpg',
+           name: 'focal',
+           descripion: 'шаблон страницы персонального портфолио',
+           link: 'works/focal',
+           color: 'red',
+           year: ''
+        },
+        {
+           category: 'port adaptive land',
+           img: 'port2.jpg',
+           name: 'crafty',
+           descripion: 'адаптивный лэндинг',
+           link: 'works/crafty',
+           color: 'red',
+           year: ''
+        },
+        {
+           category: 'eshop land adaptive',
+           img: 'eshop2.jpg',
+           name: 'claymore',
+           descripion: 'адаптивный лэндинг интернет магазина',
+           link: 'works/claymore',
+           color: 'blue',
+           year: '',
+           marker: true
+        },
+        {
+           category: 'port',
+           img: 'land2.jpg',
+           name: 'hexal',
+           descripion: 'yet another portfolio landing page',
+           link: 'works/hexal',
+           color: 'yellow',
+           year: '2014'
+        },
+        {
+           category: 'port land',
+           img: 'land1.jpg',
+           name: 'marble',
+           descripion: 'лэндинг для веб-студии',
+           link: 'works/hexal',
+           color: 'yellow',
+        },
+        {
+           category: 'land',
+           img: 'land5.jpg',
+           name: 'design stack',
+           descripion: 'cтраница блога',
+           link: 'works/design_stack',
+           color: 'red',
+           year: 2014
+        },
+        {
+           category: 'land adaptive',
+           img: 'land44.jpg',
+           name: 'bread',
+           descripion: 'когда закончатся эти лэндинги?',
+           link: 'works/bread',
+           color: 'blue',
+        },
+        {
+           category: 'land adaptive',
+           img: 'land3.jpg',
+           name: 'отборочное задание волга it 2015',
+           descripion: 'лэндинг стачки 2014',
+           link: 'works/volgait',
+           color: 'red',
+        },
+        {
+           category: 'etc port',
+           img: 'port3.jpg',
+           name: 'CSSSR',
+           descripion: 'форма-анкета-резюме верстальщика',
+           link: 'works/csssr',
+           color: 'yellow',
+        },
+        {
+           category: 'etc',
+           img: 'etc11.jpg',
+           name: 'html штуки',
+           descripion: 'интересные и не очень вещи, практикуюсь в верстке',
+           link: 'works/html_practice/index.html#3d',
+           color: 'red',
+        },
+        {
+           category: 'etc',
+           img: 'etc22.png',
+           name: 'лупа!',
+           descripion: '"увеличительное стекло" для картинок',
+           link: 'works/lens',
+           color: 'yellow',
+        }
+    ];
+
+    var filters = [
+        {
+            name: 'Bсе',
+            filter: '*',
+            active: true
+        },
+        {
+            name: 'лэндинги',
+            filter: '.land'
+        },
+        {
+            name: 'магазины',
+            filter: '.eshop'
+        },
+        {
+            name: 'портфолио',
+            filter: '.port'
+        },
+        {
+            name: 'Адаптивное',
+            filter: '.adaptive'
+        },
+        {
+            name: 'разное',
+            filter: '.etc'
+        },
+    ]
+
+.content
+    if filters.length
+        ul.cats.animated.slide-left.del2
+            each filter in filters
+                li(class!= filter.active? 'active': ''): span(data-filter= filter.filter)= filter.name
+    if portfolio_items.length
+        .grid-container.animated.slide-right.del2
+            .grid
+                each portfolio_item in portfolio_items
+                    +portfolio_item(portfolio_item)
