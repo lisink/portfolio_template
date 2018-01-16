@@ -43,5 +43,9 @@ $(document)
 
 $(window).load(function () {
     $('.animated').addClass('in');
+
+    $('.header').on('webkitTransitionEnd transitionend msTransitionEnd oTransitionEnd', 'div', function () {
+        $('.header').addClass('transition-end');
+    });
 });
 
