@@ -11,9 +11,10 @@ mixin portfolio_item(item)
                     .underline
                     +svg_icon('search')
                     .year= item.year ? item.year : 2015
-            .item-pic: img(src= 'i/min/'+item.img, class!= attributes.class)
-            if item.marker
-                +marker()
+            .item-pic
+                img(src= 'i/min/'+item.img, class!= attributes.class)
+                if item.marker
+                    +marker()
 
 mixin svg_icon(name, width, height)
     svg(width= (width? width: 35) height= (height? height: 35) viewBox='0 0 1024 1024')&attributes(attributes)
