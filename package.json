@@ -7,17 +7,17 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-add-src": "^0.2.0",
-    "gulp-autoprefixer": "^3.1.1",
+    "gulp-autoprefixer": "^4.1.0",
     "gulp-clean-css": "^3.0.4",
     "gulp-concat": "^2.6.1",
     "gulp-copy": "^1.0.0",
     "gulp-csscomb": "^3.0.8",
-    "gulp-imagemin": "^3.2.0",
-    "gulp-live-server": "0.0.30",
-    "gulp-minify": "0.0.15",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-live-server": "0.0.31",
+    "gulp-minify": "^2.1.0",
     "gulp-pug": "^3.3.0",
-    "gulp-sass": "^3.1.0",
+    "gulp-sass": "*",
     "gulp-sourcemaps": "^2.4.1",
-    "gulp-watch": "^4.3.11"
+    "gulp-watch": "^5.0.0"
   }
 }
